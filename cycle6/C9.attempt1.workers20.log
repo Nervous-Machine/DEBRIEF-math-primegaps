@@ -1,0 +1,11 @@
+start 2026-11-07T19:46:09Z
+python 3.12.16 python-flint 0.9.0 FLINT 3.6.0 numpy 2.2.6
+7f71bdefcfe3bb5ca76a143929b3cb3f4156c21dc483253cda3077420f1e5de4  prime_gap_186_certificate.py
+certificate_exit=2 2026-11-07T19:46:09Z
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.14
+	Maximum resident set size (kbytes): 54156
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; r=json.load(open('/home/runner/work/cycle6/prime_gap_186_fresh.json')); print('passed=', r.get('passed'), 'elapsed_seconds=', r.get('elapsed_seconds'), 'keys=', list(r)[:15])
+                                 ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/cycle6/prime_gap_186_fresh.json'

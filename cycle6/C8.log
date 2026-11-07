@@ -1,0 +1,231 @@
+Committer identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'runner@lima-primegaps.(none)')
+cherry-pick failed; falling back to main
+flint_commit=140103bf597dc9d7561ccb1e9f516b2b71729bff ulong_extras: one-word division by the Barrett step of NMOD_RED (#2936)
+nightly-2145-g140103bf5
+autoreconf: export WARNINGS=all
+autoreconf: Entering directory '.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal 
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+libtoolize: copying file 'config/ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: running: aclocal 
+autoreconf: running: /usr/bin/autoconf
+autoreconf: running: /usr/bin/autoheader
+autoreconf: configure.ac: not using Automake
+autoreconf: 'config/install-sh' is created
+autoreconf: Leaving directory '.'
+checking build system type... aarch64-unknown-linux-gnu
+checking host system type... aarch64-unknown-linux-gnu
+checking how to print strings... printf
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to enable C11 features... none needed
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/aarch64-linux-gnu-ld
+checking if the linker (/usr/bin/aarch64-linux-gnu-ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert aarch64-unknown-linux-gnu file names to aarch64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert aarch64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/aarch64-linux-gnu-ld option to reload object files... -r
+checking for file... file
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ranlib... ranlib
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for gawk... gawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/aarch64-linux-gnu-ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking how to run the C preprocessor... gcc -E
+checking if compiler is GCC... yes
+checking if compiler is Clang... no
+checking for inline... inline
+checking whether byte ordering is bigendian... no
+checking if memory is strongly-ordered... unsure
+checking for gmp.h... yes
+checking if version of GMP is greater than 6.2.1... yes
+checking if GMP defines mp_limb_t as unsigned long long int... no
+checking for mpfr.h... yes
+checking if version of MPFR is greater than 4.1.0... yes
+checking for desired ABI... 64
+checking for stdarg.h... yes
+checking for math.h... yes
+checking for float.h... yes
+checking for errno.h... yes
+checking for fenv.h... yes
+checking for alloca.h... yes
+checking for malloc.h... yes
+checking for sys/param.h... yes
+checking for windows.h... no
+checking for pthread_np.h... no
+checking for pthread.h... yes
+checking for library containing atan2... -lm
+checking for library containing __gmpz_init... -lgmp
+checking for library containing __gmpn_mul_basecase... none required
+checking for library containing __gmpn_gcd_11... none required
+checking for library containing __gmpn_invert_limb... none required
+checking for library containing __gmpn_divrem_2... none required
+checking for library containing __gmpn_modexact_1_odd... no
+checking for library containing __gmpn_addmul_2... no
+checking for library containing __gmpn_add_n_sub_n... none required
+checking for library containing __gmpn_add_nc... none required
+checking for library containing __gmpn_sub_nc... none required
+checking for library containing __gmpn_addlsh1_n... none required
+checking for library containing __gmpn_addlsh1_n_ip1... no
+checking for library containing __gmpn_rsh1sub_n... none required
+checking for library containing __gmpn_rsh1add_n... none required
+checking for library containing __gmpn_mulmid_n... none required
+checking for library containing __gmpn_divexact... none required
+checking for library containing __gmpn_mod_34lsub1... none required
+checking for library containing __gmpn_gcd_22... none required
+checking for library containing mpfr_init... -lmpfr
+checking for library containing mpfr_round_p... none required
+checking for library containing mpfr_mulhigh_n... none required
+checking for library containing mpfr_sqrhigh_n... none required
+checking whether gcc accepts -pthread... yes
+checking if cpu_set_t is supported... yes
+checking if alloca works... yes
+checking for aligned_alloc... yes
+checking for _aligned_malloc... no
+checking whether gcc accepts -O3... yes
+checking whether gcc accepts -pedantic... yes
+checking whether gcc accepts -std=c11... yes
+checking whether gcc accepts -Wall... yes
+checking whether gcc accepts -Werror=implicit-function-declaration... yes
+checking whether gcc accepts -Werror=newline-eof... no
+checking whether gcc accepts -Wno-stringop-overread... yes
+checking whether gcc accepts -Wno-stringop-overflow... yes
+checking whether gcc accepts -Wmissing-prototypes... yes
+checking whether gcc accepts -Wno-deprecated-declarations... yes
+checking whether gcc accepts -march=armv8-a... yes
+checking whether gcc accepts -funroll-loops... yes
+checking whether gcc accepts -ffp-contract=off... yes
+checking whether double arithmetic has excess precision... no
+checking for arm_neon.h... yes
+checking if system have required ARM instruction set for fft_small... (cached) yes
+checking if system can use FLINT's fft_small module... yes
+checking for suitable m4... m4
+checking whether assembler supports --noexecstack option... yes
+checking how to switch to text section... .text
+checking how to switch to data section... .data
+checking for assembler label suffix... :
+checking for assembler global directive... .globl
+checking for assembler global directive attribute... 
+checking if globals are prefixed by underscore... no
+checking how to switch to read-only data section... 	.section	.rodata
+checking for assembler .type directive... .type	$1,@$2
+checking for assembler .size directive... .size	$1,$2
+checking for assembler local label prefix... .L
+checking for assembler byte directive... .byte
+checking if .align assembly directive is logarithmic... yes
+creating config.m4
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating flint.pc
+config.status: creating src/flint.h
+config.status: creating src/config.h
+config.status: creating src/flint-config.h
+config.status: linking src/gmpcompat.h.in to src/gmpcompat.h
+config.status: linking src/mpn_extras/arm64/flint-mparam.h to src/flint-mparam.h
+config.status: linking src/fmpz/link/fmpz_single.c to src/fmpz/fmpz.c
+config.status: executing libtool commands
+/usr/bin/mkdir -p /home/runner/work/flint-fixed/lib
+/usr/bin/mkdir -p /home/runner/work/flint-fixed/include/flint
+/usr/bin/mkdir -p /home/runner/work/flint-fixed/lib/pkgconfig
+cp flint.pc /home/runner/work/flint-fixed/lib/pkgconfig/flint.pc
+cp -pRP ./libflint.so /home/runner/work/flint-fixed/lib
+cp -pRP ./libflint.so.25 /home/runner/work/flint-fixed/lib
+cp -pRP ./libflint.so.25.0.0 /home/runner/work/flint-fixed/lib
+cp /home/runner/work/flint/src/NTL-interface.h /home/runner/work/flint/src/acb.h /home/runner/work/flint/src/acb_calc.h /home/runner/work/flint/src/acb_dft.h /home/runner/work/flint/src/acb_dirichlet.h /home/runner/work/flint/src/acb_elliptic.h /home/runner/work/flint/src/acb_hypgeom.h /home/runner/work/flint/src/acb_mat.h /home/runner/work/flint/src/acb_modular.h /home/runner/work/flint/src/acb_mzeta.h /home/runner/work/flint/src/acb_poly.h /home/runner/work/flint/src/acb_theta.h /home/runner/work/flint/src/acb_types.h /home/runner/work/flint/src/acf.h /home/runner/work/flint/src/acf_types.h /home/runner/work/flint/src/aprcl.h /home/runner/work/flint/src/arb.h /home/runner/work/flint/src/arb_calc.h /home/runner/work/flint/src/arb_fmpz_poly.h /home/runner/work/flint/src/arb_fpwrap.h /home/runner/work/flint/src/arb_hypgeom.h /home/runner/work/flint/src/arb_mat.h /home/runner/work/flint/src/arb_poly.h /home/runner/work/flint/src/arb_types.h /home/runner/work/flint/src/arf.h /home/runner/work/flint/src/arf_types.h /home/runner/work/flint/src/arith.h /home/runner/work/flint/src/bernoulli.h /home/runner/work/flint/src/bool_mat.h /home/runner/work/flint/src/ca.h /home/runner/work/flint/src/ca_ext.h /home/runner/work/flint/src/ca_field.h /home/runner/work/flint/src/ca_mat.h /home/runner/work/flint/src/ca_poly.h /home/runner/work/flint/src/ca_types.h /home/runner/work/flint/src/ca_vec.h /home/runner/work/flint/src/calcium.h /home/runner/work/flint/src/config.h /home/runner/work/flint/src/crt_helpers.h /home/runner/work/flint/src/d_mat.h /home/runner/work/flint/src/d_vec.h /home/runner/work/flint/src/decimal.h /home/runner/work/flint/src/dfloat.h /home/runner/work/flint/src/dirichlet.h /home/runner/work/flint/src/dlog.h /home/runner/work/flint/src/double_extras.h /home/runner/work/flint/src/double_interval.h /home/runner/work/flint/src/ecpp.h /home/runner/work/flint/src/fexpr.h /home/runner/work/flint/src/fexpr_builtin.h /home/runner/work/flint/src/fft.h /home/runner/work/flint/src/fft_small.h /home/runner/work/flint/src/flint-config.h /home/runner/work/flint/src/flint-mparam.h /home/runner/work/flint/src/flint.h /home/runner/work/flint/src/fmpq.h /home/runner/work/flint/src/fmpq_mat.h /home/runner/work/flint/src/fmpq_mpoly.h /home/runner/work/flint/src/fmpq_mpoly_factor.h /home/runner/work/flint/src/fmpq_poly.h /home/runner/work/flint/src/fmpq_types.h /home/runner/work/flint/src/fmpq_vec.h /home/runner/work/flint/src/fmpz.h /home/runner/work/flint/src/fmpz_extras.h /home/runner/work/flint/src/fmpz_factor.h /home/runner/work/flint/src/fmpz_lll.h /home/runner/work/flint/src/fmpz_mat.h /home/runner/work/flint/src/fmpz_mod.h /home/runner/work/flint/src/fmpz_mod_mat.h /home/runner/work/flint/src/fmpz_mod_mpoly.h /home/runner/work/flint/src/fmpz_mod_mpoly_factor.h /home/runner/work/flint/src/fmpz_mod_mpoly_q.h /home/runner/work/flint/src/fmpz_mod_poly.h /home/runner/work/flint/src/fmpz_mod_poly_factor.h /home/runner/work/flint/src/fmpz_mod_types.h /home/runner/work/flint/src/fmpz_mod_vec.h /home/runner/work/flint/src/fmpz_mpoly.h /home/runner/work/flint/src/fmpz_mpoly_factor.h /home/runner/work/flint/src/fmpz_mpoly_q.h /home/runner/work/flint/src/fmpz_poly.h /home/runner/work/flint/src/fmpz_poly_factor.h /home/runner/work/flint/src/fmpz_poly_mat.h /home/runner/work/flint/src/fmpz_poly_q.h /home/runner/work/flint/src/fmpz_types.h /home/runner/work/flint/src/fmpz_vec.h /home/runner/work/flint/src/fmpzi.h /home/runner/work/flint/src/fq.h /home/runner/work/flint/src/fq_default.h /home/runner/work/flint/src/fq_default_mat.h /home/runner/work/flint/src/fq_default_poly.h /home/runner/work/flint/src/fq_default_poly_factor.h /home/runner/work/flint/src/fq_embed.h /home/runner/work/flint/src/fq_embed_templates.h /home/runner/work/flint/src/fq_mat.h /home/runner/work/flint/src/fq_mat_templates.h /home/runner/work/flint/src/fq_nmod.h /home/runner/work/flint/src/fq_nmod_embed.h /home/runner/work/flint/src/fq_nmod_mat.h /home/runner/work/flint/src/fq_nmod_mpoly.h /home/runner/work/flint/src/fq_nmod_mpoly_factor.h /home/runner/work/flint/src/fq_nmod_poly.h /home/runner/work/flint/src/fq_nmod_poly_factor.h /home/runner/work/flint/src/fq_nmod_types.h /home/runner/work/flint/src/fq_nmod_vec.h /home/runner/work/flint/src/fq_poly.h /home/runner/work/flint/src/fq_poly_factor.h /home/runner/work/flint/src/fq_poly_factor_templates.h /home/runner/work/flint/src/fq_poly_templates.h /home/runner/work/flint/src/fq_templates.h /home/runner/work/flint/src/fq_types.h /home/runner/work/flint/src/fq_vec.h /home/runner/work/flint/src/fq_vec_templates.h /home/runner/work/flint/src/fq_zech.h /home/runner/work/flint/src/fq_zech_embed.h /home/runner/work/flint/src/fq_zech_mat.h /home/runner/work/flint/src/fq_zech_mpoly.h /home/runner/work/flint/src/fq_zech_mpoly_factor.h /home/runner/work/flint/src/fq_zech_poly.h /home/runner/work/flint/src/fq_zech_poly_factor.h /home/runner/work/flint/src/fq_zech_types.h /home/runner/work/flint/src/fq_zech_vec.h /home/runner/work/flint/src/gettimeofday.h /home/runner/work/flint/src/gmpcompat.h /home/runner/work/flint/src/gr.h /home/runner/work/flint/src/gr_dft.h /home/runner/work/flint/src/gr_generic.h /home/runner/work/flint/src/gr_mat.h /home/runner/work/flint/src/gr_mpoly.h /home/runner/work/flint/src/gr_ore_poly.h /home/runner/work/flint/src/gr_poly.h /home/runner/work/flint/src/gr_series.h /home/runner/work/flint/src/gr_special.h /home/runner/work/flint/src/gr_types.h /home/runner/work/flint/src/gr_vec.h /home/runner/work/flint/src/limb_types.h /home/runner/work/flint/src/long_extras.h /home/runner/work/flint/src/longlong.h /home/runner/work/flint/src/longlong_asm_clang.h /home/runner/work/flint/src/longlong_asm_gcc.h /home/runner/work/flint/src/longlong_asm_gnu.h /home/runner/work/flint/src/longlong_div_gnu.h /home/runner/work/flint/src/longlong_msc_arm64.h /home/runner/work/flint/src/longlong_msc_x86.h /home/runner/work/flint/src/machine_vectors.h /home/runner/work/flint/src/mag.h /home/runner/work/flint/src/mp_real.h /home/runner/work/flint/src/mpn_extras.h /home/runner/work/flint/src/mpn_mod.h /home/runner/work/flint/src/mpoly.h /home/runner/work/flint/src/mpoly_types.h /home/runner/work/flint/src/n_poly.h /home/runner/work/flint/src/n_poly_types.h /home/runner/work/flint/src/nf.h /home/runner/work/flint/src/nf_elem.h /home/runner/work/flint/src/nfloat.h /home/runner/work/flint/src/nmod.h /home/runner/work/flint/src/nmod_mat.h /home/runner/work/flint/src/nmod_mpoly.h /home/runner/work/flint/src/nmod_mpoly_factor.h /home/runner/work/flint/src/nmod_poly.h /home/runner/work/flint/src/nmod_poly_factor.h /home/runner/work/flint/src/nmod_poly_mat.h /home/runner/work/flint/src/nmod_types.h /home/runner/work/flint/src/nmod_vec.h /home/runner/work/flint/src/padic.h /home/runner/work/flint/src/padic_mat.h /home/runner/work/flint/src/padic_poly.h /home/runner/work/flint/src/padic_radix.h /home/runner/work/flint/src/padic_types.h /home/runner/work/flint/src/partitions.h /home/runner/work/flint/src/perm.h /home/runner/work/flint/src/profiler.h /home/runner/work/flint/src/qadic.h /home/runner/work/flint/src/qfb.h /home/runner/work/flint/src/qqbar.h /home/runner/work/flint/src/qsieve.h /home/runner/work/flint/src/radix.h /home/runner/work/flint/src/templates.h /home/runner/work/flint/src/test_helpers.h /home/runner/work/flint/src/thread_pool.h /home/runner/work/flint/src/thread_support.h /home/runner/work/flint/src/ulong_extras.h src/config.h				src/flint-config.h src/flint.h				src/gmpcompat.h src/flint-mparam.h /home/runner/work/flint-fixed/include/flint
+cp: warning: source file 'src/config.h' specified more than once
+cp: warning: source file 'src/flint-config.h' specified more than once
+cp: warning: source file 'src/flint.h' specified more than once
+cp: warning: source file 'src/gmpcompat.h' specified more than once
+cp: warning: source file 'src/flint-mparam.h' specified more than once
+
+############################################################
+# NOTE:                                                    #
+#                                                          #
+# Before installing FLINT, ensure its reliability and      #
+# functionality by running the command `make check'.       #
+#                                                          #
+# This will initiate a series of tests that validates the  #
+# execution of FLINT.  This verification is a crucial step #
+# in guaranteeing a stable and error-free execution of     #
+# your software.                                           #
+#                                                          #
+############################################################
+flint_build_exit=0
+pyflint_build_exit=1
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'flint'
+Traceback (most recent call last):
+  File "/tmp/probe_flint.py", line 4, in <module>
+    import flint
+ModuleNotFoundError: No module named 'flint'
+probe_exit=1

@@ -1,0 +1,62 @@
+# Pre-registration: DEBRIEF ledger of the claim "lim inf (p_{n+1} - p_n) <= 186" (OpenAI, attributed to GPT-6 Astra)
+# Written 2026-11-07, before running any check below. Changes after this point go in an amendment, not in this file.
+
+claim:
+  statement: "DHL[40,2] holds; the 40-element tuple H has diameter 186 and is admissible; hence H1 <= 186."
+  source: "OpenAI, Improved short gaps between primes (paper dated 2026-08-30; public 2026-09-03); repo openai/PrimeGaps186"
+
+replay:
+  rule: "No look-ahead. Each cycle sees only evidence publicly available by its date. Evidence is dated by first public posting."
+  cycles:
+    - {id: 0, dated: "2014-2015", evidence: "Polymath 8a distribution estimates; Polymath 8b H1 <= 246; Maynard multidimensional sieve"}
+    - {id: 1, dated: "2026-08-31", evidence: "Stadlmann arXiv 2608.31126 v1 (H1 <= 240), independent and concurrent"}
+    - {id: 2, dated: "2026-09-03", evidence: "Axiom Math H1 <= 212 with a Lean certificate of the deduction; analytic inputs assumed"}
+    - {id: 3, dated: "2026-09-03", evidence: "OpenAI paper and repo: conditional Lean development, Comparator/Nanoda/kernel report, numerical certificate program"}
+    - {id: 4, dated: "2026-09-07 to 2026-11-05", evidence: "public record of review: MathWorld status, Science News reporting, community comments"}
+    - {id: 5, dated: "2026-11-07", evidence: "checks run by Nervous Machine (below)"}
+
+steps:   # the proof as a graph of units: what each step needs and what checks it
+  S1: {name: "the 40-tuple is admissible and has diameter 186", check: computation, by: nervous-machine}
+  S2: {name: "Polymath 8a dense-divisibility distribution estimates", check: literature}
+  S3: {name: "Stadlmann's bilinear estimate and its triply densely divisible adaptation (paper A.4)", check: formal-conditional}
+  S4: {name: "new complementary factorization conditions (Prop. 2.3, 2.4)", check: formal-conditional}
+  S5: {name: "sieve evaluation and the signed minorant criterion giving DHL[40,2] (sections 3-4)", check: formal-conditional}
+  S6: {name: "rank-three hyper-Kloosterman bound (axiom 1, Deligne)", check: literature, corroborate: numeric}
+  S7: {name: "rank-two Kloosterman correlation bound (axiom 2, Fouvry-Kowalski-Michel)", check: literature, corroborate: numeric}
+  S8: {name: "104 outer, 45 inner integral bounds and 3 cap bounds (axiom 3)", check: rerun-of-certificate}
+  S9: {name: "Challenge.lean states DHL[40,2] and H1 <= 186 as a mathematician would", check: human-semantic-review}
+
+standing_rule:
+  certified: "a deterministic check that we ran, or a formal check rerun by a party independent of the authors"
+  accepted: "a published, refereed theorem; or a formal check reported by the authors' own toolchain; or a step inside a formally checked deduction"
+  refuted: "a counterexample, a failed check, or a published objection the authors have not answered"
+  open: "an input no independent party has checked; it becomes a gap with what would close it"
+  corroboration: "numeric spot checks on small cases support a literature input but never raise its standing"
+
+claim_rule: >
+  The whole claim is called verified only if every step is certified or accepted from refereed literature AND the
+  formal deduction has been rerun independently. Otherwise it is called conditionally supported, and DEBRIEF names
+  each open input.
+
+checks_we_run:
+  C1: "S1: confirm 40 distinct entries, max - min = 186, and for every prime p <= 40 the residues mod p miss at least one class (primes above 40 are automatic)."
+  C2: "S6: for primes p <= 97, compute the normalized Kl3(c; p) exactly as defined in PrimeGaps186.lean and confirm |Kl3| <= 3 for all nonzero c."
+  C3: "S7: for primes p <= 61, compute the shifted correlation exactly as defined in PrimeGaps186.lean and confirm it is <= 8 p sqrt(p) for all nonzero A, B."
+  not_run: "S8 certificate rerun: needs the repository and a custom FLINT 3.6.0 build that is not bundled. Recorded as an open input."
+
+predictions:
+  C1: pass
+  C2: pass
+  C3: pass
+
+# ---- Amendment A1, 2026-11-07. Written AFTER checks C1-C3 ran. results.json verdicts are not changed by it. ----
+amendments:
+  - id: A1
+    dated: "2026-11-07"
+    after_checks: true
+    verdicts_unchanged: true
+    changes:
+      - "Cycle 2 evidence line overstated Axiom Math. Its 2026-09-03 announcement said its own prover had checked the deduction and that the Lean formalization would be released with the paper. No public formalization of the 212 bound was found by 2026-11-07. The ledger now says: announced, formalization promised, not public."
+      - "Provenance pinned. The tuple and the two axiom statements that C1-C3 transcribe are from openai/PrimeGaps186, commit 61340d0b74163003b32756bb16e91d9209a5e330 (2026-09-02), file Challenge.lean, sha256 b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0. A verbatim copy is in primegaps/source/ (Apache-2.0). checks.py reads the tuple from that copy and checks the hash; it fails if either differs from what was registered."
+      - "C3 as run skips p = 2, where the sum is empty and the bound holds trivially. The rule said primes p <= 61. The omission does not change the result."
+      - "Gap G2 gains a source: the repository's formalization.yaml records review status 'self-assessed' and 'No independent human semantic review'."

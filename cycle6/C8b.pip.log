@@ -1,0 +1,8 @@
+Using Python 3.12.16 environment at: /home/runner/work/venv-flint-fixed
+Resolved 2 packages in 4ms
+   Building python-flint==0.9.0
+      Built python-flint==0.9.0
+Prepared 1 package in 17.40s
+Installed 2 packages in 7ms
+ + numpy==2.2.6
+ + python-flint==0.9.0

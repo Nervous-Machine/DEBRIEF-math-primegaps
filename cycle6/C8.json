@@ -1,0 +1,9 @@
+{
+ "check": "C6",
+ "python": "3.12.16",
+ "machine": "aarch64",
+ "system": "Linux",
+ "python_flint": "0.9.0",
+ "flint_version": null,
+ "regression": "pass"
+}

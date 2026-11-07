@@ -1,0 +1,114 @@
+{
+ "cycle": 6,
+ "dated": "2026-11-07",
+ "registered": "prereg_cycle6.yaml (sha256 in prereg_cycle6.sha256; C8/C9 added by amendment A1 after C6, before they ran)",
+ "source_commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+ "environment": [
+  "Linux lima-primegaps 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:28:02 UTC 2026 aarch64 GNU/Linux",
+  "20",
+  "               total        used        free      shared  buff/cache   available",
+  "Mem:              98           1          93           0           3          96",
+  "go version go1.27.3 linux/arm64",
+  "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "elan 4.2.4 (227caca13 2026-08-25)",
+  "Python 3.14.4"
+ ],
+ "tools": {
+  "landrun_commit": "ec104f6edc1e14d7fec6d31146f1ec6f9c192c5a",
+  "nanoda_commit": "8de7e0c4ed3052745a7f8725164efd9e76d84c56"
+ },
+ "C4": {
+  "check": "lake exe cache get && lake build PrimeGaps186",
+  "lean": "4.34.0-rc2, aarch64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release",
+  "lake": "5.0.0-src+6a10ac8",
+  "build_exit": 0,
+  "warning_lines": 0,
+  "error_lines": 0,
+  "wall": "9:32.68",
+  "peak_rss_kb": 28511284,
+  "pass": true
+ },
+ "C5": {
+  "check": "lake exe comparator comparator/main.json under systemd-run, then #print axioms",
+  "comparator_exit": 0,
+  "comparator_ok": true,
+  "nanoda_accepts": true,
+  "lean_kernel_accepts": true,
+  "sandbox": "systemd-run --property=RestrictAddressFamilies=~AF_UNIX --user, landrun 0.1.18",
+  "lean4export": "3.1.0",
+  "wall": "6min 38.383s",
+  "peak_mem": "8G",
+  "theorems_checked": 3,
+  "axioms_per_theorem": [
+   [
+    "Classical.choice",
+    "PrimeGap186.kloosterman2_correlation_bound",
+    "PrimeGap186.kloosterman3_bound",
+    "PrimeGap186.physical_integral_bounds",
+    "Quot.sound",
+    "propext"
+   ],
+   [
+    "Classical.choice",
+    "PrimeGap186.kloosterman2_correlation_bound",
+    "PrimeGap186.kloosterman3_bound",
+    "PrimeGap186.physical_integral_bounds",
+    "Quot.sound",
+    "propext"
+   ],
+   [
+    "Classical.choice",
+    "PrimeGap186.kloosterman2_correlation_bound",
+    "PrimeGap186.kloosterman3_bound",
+    "PrimeGap186.physical_integral_bounds",
+    "Quot.sound",
+    "propext"
+   ]
+  ],
+  "axioms_exactly_six": true,
+  "pass": true
+ },
+ "C6": {
+  "check": "stock python-flint 0.9.0 wheel: certificate regression check_flint_signed_fft()",
+  "python": "3.12.16",
+  "python_flint": "0.9.0",
+  "regression": "fail",
+  "first_mismatch_index": 15,
+  "bundled_flint": "3.6.0 (release 30600)",
+  "pass": true,
+  "note": "pass here means the prediction held: the stock build fails the regression"
+ },
+ "C8": {
+  "check": "FLINT v3.6.0 + cherry-pick 7ad753d (PR 2790), python-flint 0.9.0 built from source against it; same regression",
+  "flint_commit": "0feeabdada0f76b47db9597ab781f84f203172e7",
+  "cherry_pick_exit": 0,
+  "flint_reports": "3.6.0",
+  "regression": "pass",
+  "pass": true,
+  "first_attempt_note": "a first attempt fell back to FLINT main (3.7.0-dev) because git had no committer identity for the cherry-pick; python-flint's version gate rejected 3.7.0-dev; that attempt is C8.log and is superseded"
+ },
+ "C9": {
+  "check": "python3 -B prime_gap_186_certificate.py --workers 4 --output fresh.json on the C8 build (the script accepts only 1 or 4 workers; the prereg said 20)",
+  "certificate_sha256": "7f71bdefcfe3bb5ca76a143929b3cb3f4156c21dc483253cda3077420f1e5de4",
+  "exit": 0,
+  "receipt_passed": true,
+  "elapsed_seconds": 3828.23849677,
+  "wall": "1:03:48",
+  "peak_rss_kb": 9693708,
+  "status": "done",
+  "pass": true,
+  "final_margin_lower": 2.3360452297044097e-05,
+  "required_margin": 2e-05,
+  "margin_exceeds_required": true,
+  "margin_exceeds_1_over_50000": true,
+  "component_count": 97,
+  "receipt_sha256": "88ef5526f7f188159da1060a7494056345c351b75963784d11ada41fbf625cf2"
+ },
+ "predictions_held": {
+  "C4": true,
+  "C5": true,
+  "C6": true,
+  "C8": true,
+  "C9": true
+ }
+}

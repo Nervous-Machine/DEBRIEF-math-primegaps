@@ -1,0 +1,7 @@
+start 2026-11-07T19:46:55Z
+python 3.12.16 python-flint 0.9.0 FLINT 3.6.0 numpy 2.2.6
+7f71bdefcfe3bb5ca76a143929b3cb3f4156c21dc483253cda3077420f1e5de4  prime_gap_186_certificate.py
+certificate_exit=0 2026-11-07T20:50:43Z
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:03:48
+	Maximum resident set size (kbytes): 9693708
+passed= True elapsed_seconds= 3828.23849677 keys= ['cap', 'component_count', 'components', 'elapsed_seconds', 'final_margin_lower', 'final_quotient_lower', 'group_totals', 'normalization', 'normalized_source_loss_upper', 'passed', 'raw_form_count', 'required_margin', 'settings', 'source_normalization_denominator', 'source_total_relative_units']

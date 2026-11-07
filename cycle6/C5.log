@@ -1,0 +1,15 @@
+start 2026-11-07T19:52:01Z
+lean4export_build_exit=0
+lean4export_bin=.lake/packages/lean4export/.lake/build/bin/lean4export
+comparator_build_exit=0
+comparator_bin=.lake/packages/Comparator/.lake/build/bin/comparator
++ landrun --version
+landrun version 0.1.18
++ /home/runner/work/nanoda_lib/target/release/nanoda_bin --version
+Error: failed to open configuration file: Os { code: 2, kind: NotFound, message: "No such file or directory" }
+
+run with `-h` or `--help` for help
++ /home/runner/work/PrimeGaps186/.lake/packages/lean4export/.lake/build/bin/lean4export --help
++ head -2
+{"meta":{"exporter":{"name":"lean4export","version":"3.1.0"},"format":{"version":"3.1.0"},"lean":{"githash":"6a10ac8c22beadecabdbb0919c2b50214762f91d","version":"4.34.0-rc2"}}}
+comparator_exit=0 2026-11-07T19:58:48Z

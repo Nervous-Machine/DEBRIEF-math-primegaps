@@ -1,0 +1,18 @@
+[detached HEAD 0feeabdad] Fix fft conversion bug causing rare incorrect results in fmpz_poly_mul_SS
+ Author: Fredrik Johansson <fredrik.johansson@gmail.com>
+ Date: Mon Aug 10 21:34:15 2026 +0200
+ 3 files changed, 63 insertions(+), 2 deletions(-)
+cherry_pick_exit=0
+flint_commit=0feeabdada0f76b47db9597ab781f84f203172e7 Fix fft conversion bug causing rare incorrect results in fmpz_poly_mul_SS
+flint_commit=8d5454b96761fafe4d5a9da76a369a602f500f49 Version 3.6.0
+flint_build_exit=0
+libflint.so
+libflint.so.24
+libflint.so.24.0.0
+pkgconfig
+python-flint build against /home/runner/work/flint-360fix 2026-11-07T19:45:00Z
+3.6.0
+pyflint_build_exit=0
+python-flint 0.9.0 FLINT 3.6.0
+['/home/runner/work/flint-360fix/lib/libflint.so.24.0.0']
+probe_exit=0

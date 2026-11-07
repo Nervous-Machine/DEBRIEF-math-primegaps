@@ -1,0 +1,12 @@
+{
+ "check": "C6",
+ "python": "3.12.16",
+ "machine": "aarch64",
+ "system": "Linux",
+ "python_flint": "0.9.0",
+ "flint_version": null,
+ "regression": "fail",
+ "error": "FLINT failed its signed-FFT regression; install a build with corrected signed convolution.",
+ "first_mismatch_index": 15,
+ "degree_got": 30
+}

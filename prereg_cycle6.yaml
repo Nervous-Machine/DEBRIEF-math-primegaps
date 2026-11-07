@@ -1,0 +1,60 @@
+# Pre-registration, cycle 6: independent rerun of openai/PrimeGaps186
+# Written 2026-11-07 BEFORE any build, probe or check below ran. Changes after this point go in an amendment at the end
+# of this file, not in the body. Tooling installation (VM, elan, pip) is not a check and may precede the checks.
+
+cycle: 6
+dated: "2026-11-07"
+question: >
+  Does the conditional Lean development rebuild and pass the authors' checkers when run by a party independent of the
+  authors, and can the numerical certificate be rerun without the authors' custom FLINT build?
+
+environment:
+  host: "Heidi's Mac (Apple silicon, 128 GB RAM, 24 cores). Nothing from the repository runs on the host."
+  vm: "Linux VM (Lima); all repository code runs inside it"
+  source: "github.com/openai/PrimeGaps186 at commit 61340d0b74163003b32756bb16e91d9209a5e330; Challenge.lean must hash b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0 (the vendored copy)"
+  toolchain: "leanprover/lean4:v4.34.0-rc2 as pinned by lean-toolchain; Mathlib as pinned by lake-manifest.json; Comparator, lean4export, Nanoda and landrun per comparator/README.md"
+  record: "wall time, peak memory, exit codes, tool versions and full logs for every check go in primegaps/cycle6/"
+
+checks:
+  C4: "lake exe cache get && lake build PrimeGaps186 exits 0 with no errors and no warnings (the README claims a warning-free build)."
+  C5: "lake exe comparator comparator/main.json: Comparator matches all three declarations to Challenge.lean; Nanoda and the Lean kernel accept the proofs; the axioms used are exactly the six permitted (kloosterman3_bound, kloosterman2_correlation_bound, physical_integral_bounds, propext, Quot.sound, Classical.choice) and nothing else."
+  C6: "Stock python-flint 0.9.0 from PyPI: the certificate's startup regression check_flint_signed_fft(), reproduced verbatim, either raises or passes."
+  C7: "Only if C6 passes: python3 -B prime_gap_186_certificate.py --workers 20 --output fresh.json yields a receipt with passed: true. Record elapsed_seconds."
+
+predictions:
+  C4: pass
+  C5: "pass; 3 of 3 matched; six axioms exactly"
+  C6: "fail: the regression raises. OpenAI states a custom FLINT 3.6.0 build with corrected signed convolution is required and not bundled."
+  C7: "not run, because C6 is predicted to fail. If C6 passes unexpectedly, C7 is predicted to pass."
+
+standing_consequences:
+  C4_and_C5_pass: "P2 moves from accepted to certified: a formal check rerun by a party independent of the authors. G2, G3, G4 unchanged."
+  C4_or_C5_fail: "P2 stays accepted. A new gap opens naming the failure. The failure is reported as a failure."
+  C6_fail: "G1 stays open. Its ask becomes specific: the FLINT patch for signed FFT polynomial convolution, or a stock build that passes the regression."
+  C6_pass_C7_pass: "G1 resolves (resolved_learned); the third input moves from open to certified."
+  C6_pass_C7_fail: "G1 stays open and an anomaly is recorded: the certificate does not reproduce on a stock build."
+
+not_settled_by_this_cycle: "G2 (do the formal goals mean what the paper claims), G3 (the two classical bounds are literature inputs), G4 (refereeing). A rerun certifies the conditional deduction, not the inputs."
+
+# ---- Amendment A1, 2026-11-07, written after C6 ran (fail, as predicted) and BEFORE C8/C9 ran. ----
+amendments:
+  - id: A1
+    dated: "2026-11-07"
+    after_checks: ["C6"]
+    reason: >
+      OpenAI's numerics paper (short_gaps_numerics.pdf, refs 3, 5, 6) identifies the "custom FLINT 3.6.0 build" as FLINT 3.6.0
+      with upstream fix commit 7ad753d51c82fdec115cb179b41d0e581f1cb0ec (pull request 2790, merged to main 2026-08-11,
+      "Fix fft conversion bug causing rare incorrect results in fmpz_poly_mul_SS"). The fix is public but in no FLINT release
+      (latest release v3.6.0, 2026-06-29); the python-flint 0.9.0 wheel bundles unfixed FLINT 3.6.0. The certificate is
+      therefore reproducible from public sources, which the ledger's gap G1 did not know.
+    C6_result: "fail; first wrong coefficient at index 15 of 31; wheel bundles FLINT 3.6.0 (release 30600)"
+    new_checks:
+      C8: "Build FLINT v3.6.0 with commit 7ad753d cherry-picked (if the cherry-pick does not apply cleanly, FLINT main at 140103bf597dc9d7561ccb1e9f516b2b71729bff, which contains it, and say so). Build python-flint 0.9.0 from source against it. Run the same regression probe as C6."
+      C9: "Only if C8 passes: python3 -B prime_gap_186_certificate.py --workers 20 --output fresh.json on that build, PYTHONOPTIMIZE unset. Record elapsed_seconds and the receipt."
+    predictions:
+      C8: pass
+      C9: "pass (receipt passed: true)"
+    standing_consequences:
+      C8_pass_C9_pass: "G1 resolves (resolved_learned): the third input is independently reproduced; it moves from open to certified under the audit regime. G1's history records that the missing piece was an unreleased upstream fix, not private code."
+      C8_fail: "G1 stays open; the FLINT fix as published does not make the regression pass; report as such."
+      C8_pass_C9_fail: "G1 stays open and an anomaly is recorded: the certificate does not reproduce on the fixed build."

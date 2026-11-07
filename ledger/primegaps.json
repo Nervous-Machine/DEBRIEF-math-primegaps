@@ -1,0 +1,1273 @@
+{
+ "missions": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "title": "The claim that primes come within 186 of each other infinitely often",
+   "pods": [
+    "nm-trust-trial/primegaps"
+   ],
+   "began": "2026-11-07",
+   "status": "active",
+   "record_quality": "reconstructed",
+   "record_note": "Replayed from the public record, dated by first public posting; Nervous Machine's own checks were registered before they ran.",
+   "record_limits": [
+    "The Lean build, Comparator and the certificate were rerun by Nervous Machine on one machine; no second independent party has reported a rerun."
+   ],
+   "scope_limits": [
+    "Nervous Machine keeps score of the checks; it does not check the mathematics line by line.",
+    "Public record through November seventh, 2026."
+   ],
+   "opening": {
+    "spoken": "This briefing walks through a claimed new record in number theory: that infinitely many pairs of primes sit at most one hundred and eighty six apart. I will tell you what was claimed, what has been checked and by whom, and what still has to happen before it counts as settled."
+   },
+   "short_version": {
+    "spoken": "In early September, OpenAI posted a proof credited to its model GPT 6 Astra that infinitely many pairs of primes are at most one hundred and eighty six apart, beating the 2014 record of two hundred and forty six. The same week, Hanxin Zhang and Julia Stadlmann each reached two hundred and forty and Axiom Math announced two hundred and twelve by related routes, so the approach is credible. The logic of OpenAI's proof is fully machine-checked in Lean, but it rests on three inputs that were taken as given: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds computed by a separate program. Nervous Machine checked what can be checked directly. The forty-number list is correct, and the two classical bounds hold with room to spare on every small prime tested. Nervous Machine then reran OpenAI's own checks: the Lean build, the Comparator match and both kernel checks all passed, and the numerical certificate ran to completion and passed on a publicly buildable library. What is still open is human: no number theorist has publicly confirmed the formal statements say what the paper claims, and the written proof has not been refereed. My read: conditionally supported, with the computation independently reproduced; not yet settled."
+   },
+   "what_happened": {
+    "spoken": "The starting point. In 2014 the Polymath 8 project, building on work by Yitang Zhang and James Maynard, showed that infinitely many pairs of primes sit at most two hundred and forty six apart. That paper itself noted a route to do better, using stronger inputs on how primes spread across remainders, but said the resulting calculations were hard to carry out at the size needed. Two proofs of two hundred and forty appeared within four days of each other, the first improvement in more than a decade. Hanxin Zhang deposited one on August twenty eighth, with the discovery credited to the model GPT 5.6 Sol and an exact-arithmetic certificate released alongside it. Julia Stadlmann posted hers on August thirty first, by a related route and with no AI involved. Neither cites the other. Both are preprints and neither has been refereed. On September third, Axiom Math announced two hundred and twelve. Its preliminary draft, by nine named authors, uses a forty-five-number list and says the company's prover produced a Lean certificate of the deduction, taking five analytic estimates and a separately checked variational certificate as hypotheses. That certificate has not been published; Axiom's public Lean library covers only the older bounds of two hundred and forty six and six hundred. OpenAI posted a paper, dated August thirtieth and credited to its model GPT 6 Astra, claiming one hundred and eighty six. The claim is that a particular list of forty numbers, spanning one hundred and eighty six, has infinitely many shifted copies containing two primes. The logical argument is written in Lean and was checked by Lean itself, by a second independent checker called Nanoda, and by a tool called Comparator that confirms the proved statements match the ones set out in advance. The argument rests on three stated inputs that were not proved in Lean: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds, which a separate program computes. In plain terms, the method gives each shifted copy of the list a weight, so copies likely to hold two primes count more. New conditions on how those weights factor let them reach further than the 2014 method allowed, and a large numerical optimization then shows that forty numbers are enough. Through early November, no independent verification of the full bound was reported. Terence Tao's optimization-problems page lists one hundred and eighty six as the record and states that no bound was independently verified and that neither the Lean build nor the numerical certificate was rerun there. MathWorld's table, updated November fifth, lists it as a conditional Lean proof with no independent verification reported. Reporting in Science News quoted mathematicians on credit and conduct; none described checking the proof. The repository has one commit, no issues and no pull requests. Nervous Machine ran three checks it had written down first. The list of forty numbers does span one hundred and eighty six and leaves out at least one remainder for every prime, which is what the argument needs. The two classical exponential-sum bounds were tested exactly as they are written in the Lean files, on every small prime up to ninety seven and sixty one. Both held with room to spare: the largest value seen was about 2.4 against a limit of three, and the correlation never passed 46 percent of its limit. Those tests support the inputs but do not prove them. Nervous Machine then reran OpenAI's own checks on a Linux virtual machine, under a second pre-registration written before anything ran. The Lean development built from the pinned sources with no errors and no warnings, in under ten minutes. Comparator matched the three formal statements to the published challenge file, and both the Nanoda kernel and Lean's own kernel accepted the proofs, using exactly the six permitted axioms. The numerical certificate's startup test failed on the stock FLINT library, as predicted, and that pointed to the missing piece: the custom build OpenAI described is FLINT three point six with one public upstream fix, merged in August and in no release yet. Built that way, the library passed the test. The certificate program itself then ran to completion with four workers and reported a pass, in 1:03:48."
+   },
+   "implications": {
+    "rely_on": [
+     {
+      "spoken": "The forty-number list and its span of one hundred and eighty six are correct.",
+      "finding_ids": [
+       "P1"
+      ],
+      "audience": "briefing"
+     },
+     {
+      "spoken": "The logic from the three inputs to the conclusion is machine-checked, and Nervous Machine has rerun that check independently.",
+      "finding_ids": [
+       "P2"
+      ],
+      "audience": "briefing"
+     }
+    ],
+    "do_not_rely_on": [
+     {
+      "spoken": "Do not call one hundred and eighty six a theorem yet. The computation is now independently reproduced; what remains is human: whether the formal statements say what the paper claims, and refereeing.",
+      "finding_ids": [
+       "P2"
+      ],
+      "audience": "briefing"
+     }
+    ],
+    "stop": [
+     {
+      "spoken": "Stop describing the proof as resting on six assumptions. Three of those are Lean's standard rules; the claim rests on three.",
+      "finding_ids": [
+       "P6"
+      ],
+      "audience": "briefing"
+     }
+    ],
+    "new": [
+     {
+      "spoken": "The fastest remaining step is a number theorist reading the three goal statements in the challenge file.",
+      "finding_ids": [],
+      "audience": "briefing"
+     }
+    ]
+   },
+   "certainty_statement": {
+    "spoken": "Three steps are certified: the forty-number list by direct check, the Lean deduction by independent rerun, and the numerical bounds by independent rerun. Two inputs are accepted as standard literature with supporting spot checks. Open: whether the formal statements say what the paper claims, and refereeing."
+   },
+   "sources": [
+    {
+     "kind": "paper",
+     "ref": "OpenAI, Improved short gaps between primes (2026)"
+    },
+    {
+     "kind": "repository",
+     "ref": "github.com/openai/PrimeGaps186 at commit 61340d0 (2026-09-02); Challenge.lean sha256 b99a403b1946547e..., copy in primegaps/source/"
+    },
+    {
+     "kind": "metadata",
+     "ref": "openai/PrimeGaps186 formalization.yaml: review status self-assessed; no independent human semantic review"
+    },
+    {
+     "kind": "paper",
+     "ref": "Stadlmann, arXiv 2608.31126"
+    },
+    {
+     "kind": "reference",
+     "ref": "MathWorld, Bounded Gaps Between Primes (updated 2026-11-05)"
+    },
+    {
+     "kind": "news",
+     "ref": "Science News, 2026-09-11"
+    },
+    {
+     "kind": "reference",
+     "ref": "Tao, optimization problems, constant 88a (bounded prime gap), read 2026-11-07"
+    },
+    {
+     "kind": "paper",
+     "ref": "H. Zhang, A bound of 240 for gaps between primes, Zenodo 10.5281/zenodo.22135842 (2026-08-28); certificate github.com/hanxinzhang/prime-bound"
+    },
+    {
+     "kind": "paper",
+     "ref": "Axiom Math, A new bound for small gaps between primes, preliminary draft 2026-09-03 (primegaps.axiommath.ai/bgp212.pdf)"
+    },
+    {
+     "kind": "checks",
+     "ref": "nm-trust-trial/debrief/primegaps/results.json"
+    },
+    {
+     "kind": "checks",
+     "ref": "nm-trust-trial/debrief/primegaps/cycle6/results_cycle6.json (independent rerun, 2026-11-07)"
+    },
+    {
+     "kind": "paper",
+     "ref": "OpenAI, Numerical certificate for prime gaps at most 186 (short_gaps_numerics.pdf; names FLINT fix 7ad753d, PR 2790)"
+    },
+    {
+     "kind": "reference",
+     "ref": "flintlib/flint pull request 2790, commit 7ad753d (merged 2026-08-11, unreleased)"
+    }
+   ],
+   "internal_prose": []
+  }
+ ],
+ "cycles": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 0,
+   "dated": "2014-2015",
+   "preregistered": {
+    "question": "Where did the record stand before the claim?",
+    "rule": "replay: only evidence public by this date",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "learned",
+    "numbers": {
+     "polymath_8b_bound": 246,
+     "maynard_bound": 600
+    }
+   },
+   "spoken": "The starting point. In 2014 the Polymath 8 project, building on work by Yitang Zhang and James Maynard, showed that infinitely many pairs of primes sit at most two hundred and forty six apart. That paper itself noted a route to do better, using stronger inputs on how primes spread across remainders, but said the resulting calculations were hard to carry out at the size needed.",
+   "finding_ids": [
+    "P3"
+   ],
+   "gap_ids": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 1,
+   "dated": "2026-08-28 to 2026-08-31",
+   "preregistered": {
+    "question": "Is the route plausible?",
+    "rule": "replay: only evidence public by this date",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "classified",
+    "numbers": {
+     "zhang_bound": 240,
+     "stadlmann_bound": 240
+    }
+   },
+   "spoken": "Two proofs of two hundred and forty appeared within four days of each other, the first improvement in more than a decade. Hanxin Zhang deposited one on August twenty eighth, with the discovery credited to the model GPT 5.6 Sol and an exact-arithmetic certificate released alongside it. Julia Stadlmann posted hers on August thirty first, by a related route and with no AI involved. Neither cites the other. Both are preprints and neither has been refereed.",
+   "finding_ids": [
+    "P5",
+    "P7"
+   ],
+   "gap_ids": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 2,
+   "dated": "2026-09-03",
+   "preregistered": {
+    "question": "Does a second, independent group reach a lower bound by a related route?",
+    "rule": "replay: only evidence public by this date",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "classified",
+    "numbers": {
+     "axiom_bound": 212,
+     "axiom_formalization_public": false
+    }
+   },
+   "spoken": "On September third, Axiom Math announced two hundred and twelve. Its preliminary draft, by nine named authors, uses a forty-five-number list and says the company's prover produced a Lean certificate of the deduction, taking five analytic estimates and a separately checked variational certificate as hypotheses. That certificate has not been published; Axiom's public Lean library covers only the older bounds of two hundred and forty six and six hundred.",
+   "finding_ids": [
+    "P5"
+   ],
+   "gap_ids": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 3,
+   "dated": "2026-09-03",
+   "preregistered": {
+    "question": "What exactly is claimed, and what has been checked?",
+    "rule": "replay: only evidence public by this date",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "claimed_bound": 186,
+     "tuple_size": 40,
+     "project_axioms": 3,
+     "integral_bounds": 152
+    }
+   },
+   "spoken": "OpenAI posted a paper, dated August thirtieth and credited to its model GPT 6 Astra, claiming one hundred and eighty six. The claim is that a particular list of forty numbers, spanning one hundred and eighty six, has infinitely many shifted copies containing two primes. The logical argument is written in Lean and was checked by Lean itself, by a second independent checker called Nanoda, and by a tool called Comparator that confirms the proved statements match the ones set out in advance. The argument rests on three stated inputs that were not proved in Lean: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds, which a separate program computes. In plain terms, the method gives each shifted copy of the list a weight, so copies likely to hold two primes count more. New conditions on how those weights factor let them reach further than the 2014 method allowed, and a large numerical optimization then shows that forty numbers are enough.",
+   "finding_ids": [
+    "P2",
+    "P3",
+    "P4",
+    "P6"
+   ],
+   "gap_ids": [
+    "G1",
+    "G2",
+    "G3",
+    "G4"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 4,
+   "dated": "2026-09-07 to 2026-11-05",
+   "preregistered": {
+    "question": "Has anyone outside OpenAI checked it?",
+    "rule": "replay: only evidence public by this date",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "unavailable",
+    "numbers": {}
+   },
+   "spoken": "Through early November, no independent verification of the full bound was reported. Terence Tao's optimization-problems page lists one hundred and eighty six as the record and states that no bound was independently verified and that neither the Lean build nor the numerical certificate was rerun there. MathWorld's table, updated November fifth, lists it as a conditional Lean proof with no independent verification reported. Reporting in Science News quoted mathematicians on credit and conduct; none described checking the proof. The repository has one commit, no issues and no pull requests.",
+   "finding_ids": [],
+   "gap_ids": [
+    "G1",
+    "G2",
+    "G4"
+   ],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 5,
+   "dated": "2026-11-07",
+   "preregistered": {
+    "question": "Do the parts that can be checked directly hold up?",
+    "rule": "three checks and their pass conditions registered before running",
+    "predictions": [],
+    "commit": "primegaps/prereg.yaml",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "tuple_diameter": 186,
+     "kl3_max_seen": 2.351302,
+     "kl3_bound": 3,
+     "correlation_max_ratio_to_bound": 0.4578
+    }
+   },
+   "spoken": "Nervous Machine ran three checks it had written down first. The list of forty numbers does span one hundred and eighty six and leaves out at least one remainder for every prime, which is what the argument needs. The two classical exponential-sum bounds were tested exactly as they are written in the Lean files, on every small prime up to ninety seven and sixty one. Both held with room to spare: the largest value seen was about 2.4 against a limit of three, and the correlation never passed 46 percent of its limit. Those tests support the inputs but do not prove them.",
+   "finding_ids": [
+    "P1",
+    "P4"
+   ],
+   "gap_ids": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 6,
+   "dated": "2026-11-07",
+   "preregistered": {
+    "question": "Does the conditional Lean development rebuild and pass the authors' checkers when run independently, and can the numerical certificate be rerun without the authors' custom library?",
+    "rule": "pre-registered in primegaps/prereg_cycle6.yaml: C4 to C7 before any run; C8 and C9 added by amendment A1 after C6 and before they ran",
+    "predictions": [],
+    "commit": "primegaps/prereg_cycle6.yaml",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "lean_build_wall": "9:32.68",
+     "lean_build_peak_gb": 28.5,
+     "lean_warnings": 0,
+     "comparator_wall": "6min 38.383s",
+     "axioms_used": 6,
+     "stock_flint_regression": "fail",
+     "fixed_flint_regression": "pass",
+     "flint_fix_commit": "0feeabdada0f76b47db9597ab781f84f203172e7",
+     "certificate": "passed",
+     "certificate_wall": "1:03:48"
+    }
+   },
+   "spoken": "Nervous Machine then reran OpenAI's own checks on a Linux virtual machine, under a second pre-registration written before anything ran. The Lean development built from the pinned sources with no errors and no warnings, in under ten minutes. Comparator matched the three formal statements to the published challenge file, and both the Nanoda kernel and Lean's own kernel accepted the proofs, using exactly the six permitted axioms. The numerical certificate's startup test failed on the stock FLINT library, as predicted, and that pointed to the missing piece: the custom build OpenAI described is FLINT three point six with one public upstream fix, merged in August and in no release yet. Built that way, the library passed the test. The certificate program itself then ran to completion with four workers and reported a pass, in 1:03:48.",
+   "finding_ids": [
+    "P2",
+    "P8",
+    "P9"
+   ],
+   "gap_ids": [
+    "G1"
+   ],
+   "audience": "briefing"
+  }
+ ],
+ "findings": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P1",
+   "kind": "learned",
+   "spoken": "The list of forty numbers in the claim spans exactly one hundred and eighty six and is admissible: for every prime, it misses at least one remainder.",
+   "evidence": {
+    "numbers": {
+     "pass": true,
+     "size": 40,
+     "diameter": 186,
+     "first_missed_residues": {
+      "2": [
+       1
+      ],
+      "3": [
+       1
+      ],
+      "5": [
+       4
+      ],
+      "7": [
+       3
+      ],
+      "11": [
+       7
+      ],
+      "13": [
+       5
+      ],
+      "17": [
+       11
+      ],
+      "19": [
+       8
+      ],
+      "23": [
+       16
+      ],
+      "29": [
+       9,
+       18
+      ],
+      "31": [
+       4,
+       18
+      ],
+      "37": [
+       3,
+       7,
+       17
+      ]
+     },
+     "source": {
+      "repo": "github.com/openai/PrimeGaps186",
+      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+      "committed": "2026-09-02",
+      "file": "Challenge.lean",
+      "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0",
+      "fetched": "2026-11-07",
+      "sha256_observed": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0",
+      "tuple_in_source": [
+       0,
+       2,
+       6,
+       12,
+       20,
+       26,
+       30,
+       32,
+       36,
+       42,
+       48,
+       50,
+       56,
+       60,
+       68,
+       72,
+       78,
+       86,
+       90,
+       92,
+       98,
+       102,
+       110,
+       116,
+       120,
+       126,
+       132,
+       138,
+       140,
+       146,
+       152,
+       156,
+       158,
+       162,
+       168,
+       170,
+       176,
+       180,
+       182,
+       186
+      ],
+      "tuple_matches_H": true,
+      "axiom_text_present": {
+       "C2": true,
+       "C3": true
+      }
+     }
+    },
+    "cycles": [
+     5
+    ],
+    "confirmed_by": [
+     "computation run by Nervous Machine"
+    ]
+   },
+   "standing": {
+    "status": "certified",
+    "basis": "checked by direct computation under a rule written down first, on the tuple read from the pinned Lean source",
+    "note": "source pinned to repository commit 61340d0 and file hash"
+   },
+   "certainty": {
+    "earned": true,
+    "note": "deterministic, reproducible check (audit regime, see SCHEMA.md)"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P2",
+   "kind": "learned",
+   "spoken": "The logical argument, from the three stated inputs to the conclusion that the forty-number list has infinitely many shifted copies containing two primes, is machine-checked in Lean.",
+   "evidence": {
+    "numbers": {
+     "checkers": [
+      "Lean kernel",
+      "Nanoda",
+      "Comparator"
+     ],
+     "independent_rerun": {
+      "check": "lake exe comparator comparator/main.json under systemd-run, then #print axioms",
+      "comparator_exit": 0,
+      "comparator_ok": true,
+      "nanoda_accepts": true,
+      "lean_kernel_accepts": true,
+      "sandbox": "systemd-run --property=RestrictAddressFamilies=~AF_UNIX --user, landrun 0.1.18",
+      "lean4export": "3.1.0",
+      "wall": "6min 38.383s",
+      "peak_mem": "8G",
+      "theorems_checked": 3,
+      "axioms_per_theorem": [
+       [
+        "Classical.choice",
+        "PrimeGap186.kloosterman2_correlation_bound",
+        "PrimeGap186.kloosterman3_bound",
+        "PrimeGap186.physical_integral_bounds",
+        "Quot.sound",
+        "propext"
+       ],
+       [
+        "Classical.choice",
+        "PrimeGap186.kloosterman2_correlation_bound",
+        "PrimeGap186.kloosterman3_bound",
+        "PrimeGap186.physical_integral_bounds",
+        "Quot.sound",
+        "propext"
+       ],
+       [
+        "Classical.choice",
+        "PrimeGap186.kloosterman2_correlation_bound",
+        "PrimeGap186.kloosterman3_bound",
+        "PrimeGap186.physical_integral_bounds",
+        "Quot.sound",
+        "propext"
+       ]
+      ],
+      "axioms_exactly_six": true,
+      "pass": true
+     }
+    },
+    "cycles": [
+     3,
+     6
+    ],
+    "confirmed_by": [
+     "OpenAI's own toolchain",
+     "rerun by Nervous Machine, 2026-11-07"
+    ]
+   },
+   "standing": {
+    "status": "certified",
+    "basis": "formally checked by the authors' toolchain, and rerun by Nervous Machine on November seventh: the Lean build, Comparator, the Nanoda kernel and Lean's kernel all passed, with exactly the six permitted axioms",
+    "note": "the first independent rerun reported in the public record"
+   },
+   "certainty": {
+    "earned": true,
+    "note": "independent rerun (audit regime)"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P3",
+   "kind": "learned",
+   "spoken": "The argument builds on published work: the Polymath 8 distribution estimates and Maynard's sieve. Those are established results.",
+   "evidence": {
+    "numbers": {},
+    "cycles": [
+     0,
+     3
+    ],
+    "confirmed_by": [
+     "refereed publications"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "published, refereed results",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "a checked statement, not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P4",
+   "kind": "learned",
+   "spoken": "The two classical exponential-sum inputs come from Deligne's work and from Fouvry, Kowalski and Michel. They are stated as assumptions, not proved in Lean. Tested exactly as written on small primes, both held with room to spare.",
+   "evidence": {
+    "numbers": {
+     "kl3_max_seen": 2.351302,
+     "correlation_max_ratio": 0.4578
+    },
+    "cycles": [
+     3,
+     5
+    ],
+    "confirmed_by": [
+     "literature",
+     "numeric spot checks by Nervous Machine"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "standard results in the literature, supported by spot checks on small primes",
+    "note": "spot checks support but do not prove"
+   },
+   "certainty": {
+    "earned": null,
+    "note": "a checked statement, not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P5",
+   "kind": "discovery",
+   "spoken": "Three independent groups reached bounds below two hundred and forty six by related routes in the same week: Zhang and Stadlmann at two hundred and forty, Axiom Math at two hundred and twelve. The route itself is credible.",
+   "evidence": {
+    "numbers": {
+     "bounds": {
+      "Zhang": 240,
+      "Stadlmann": 240,
+      "Axiom": 212
+     }
+    },
+    "cycles": [
+     1,
+     2
+    ],
+    "confirmed_by": [
+     "Zhang preprint and certificate (Zenodo, GitHub)",
+     "Stadlmann preprint",
+     "Axiom Math preliminary draft"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "three independent groups, none refereed; Axiom's Lean certificate is described in its draft and is not public",
+    "note": "none of them checks the one hundred and eighty six claim itself"
+   },
+   "certainty": {
+    "earned": null,
+    "note": "a checked statement, not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P7",
+   "kind": "correction",
+   "spoken": "An earlier draft of this briefing called Stadlmann's two hundred and forty the first improvement in more than a decade. Hanxin Zhang's two hundred and forty was deposited three days earlier, on August twenty eighth, with the discovery credited to an AI model. They are independent proofs of the same bound.",
+   "evidence": {
+    "numbers": {
+     "zhang_deposited": "2026-08-28",
+     "stadlmann_posted": "2026-08-31"
+    },
+    "cycles": [
+     1
+    ],
+    "confirmed_by": [
+     "Tao's optimization-problems page, constant 88a",
+     "Zenodo record 10.5281/zenodo.22135842"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "dated public deposits",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "a checked statement, not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P6",
+   "kind": "correction",
+   "spoken": "Some descriptions say the proof rests on six assumptions. Three of those are the standard rules of Lean's logic that every Lean proof uses. The claim rests on three.",
+   "evidence": {
+    "numbers": {
+     "project_axioms": 3,
+     "lean_standard_axioms": 3
+    },
+    "cycles": [
+     3
+    ],
+    "confirmed_by": [
+     "repository README"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "the repository lists them",
+    "note": null
+   },
+   "certainty": {
+    "earned": null,
+    "note": "a checked statement, not a learned relationship"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P8",
+   "kind": "correction",
+   "spoken": "Earlier this briefing said the numerical certificate needed a library build OpenAI had not published. The missing piece is public: one upstream fix to the FLINT library, merged in August and in no release yet. The stock library fails the certificate's own startup test; FLINT three point six with that one fix passes it.",
+   "evidence": {
+    "numbers": {
+     "flint_fix_commit": "0feeabdada0f76b47db9597ab781f84f203172e7",
+     "flint_pull_request": 2790,
+     "stock_regression": "fail",
+     "stock_first_wrong_coefficient": 15,
+     "fixed_regression": "pass"
+    },
+    "cycles": [
+     6
+    ],
+    "confirmed_by": [
+     "checks C6 and C8 run by Nervous Machine",
+     "OpenAI's numerics paper, references 3, 5 and 6"
+    ]
+   },
+   "standing": {
+    "status": "certified",
+    "basis": "deterministic checks registered before they ran",
+    "note": "corrects gap G1's earlier description"
+   },
+   "certainty": {
+    "earned": true,
+    "note": "deterministic, reproducible checks (audit regime)"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P9",
+   "kind": "learned",
+   "spoken": "The one hundred and fifty two numerical bounds reproduce. Nervous Machine ran OpenAI's certificate program on the fixed library, and it reported a pass.",
+   "evidence": {
+    "numbers": {
+     "receipt_passed": true,
+     "elapsed_seconds": 3828.23849677,
+     "wall": "1:03:48",
+     "receipt_sha256": "88ef5526f7f188159da1060a7494056345c351b75963784d11ada41fbf625cf2"
+    },
+    "cycles": [
+     6
+    ],
+    "confirmed_by": [
+     "certificate run by Nervous Machine"
+    ]
+   },
+   "standing": {
+    "status": "certified",
+    "basis": "independent rerun of the certificate under a rule written first",
+    "note": "one machine, one party; a second independent rerun would strengthen it"
+   },
+   "certainty": {
+    "earned": true,
+    "note": "independent rerun (audit regime)"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  }
+ ],
+ "gaps": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "gap_id": "G1",
+   "title": "The one hundred and fifty two numerical integral bounds",
+   "spoken": "OpenAI's program reports that all one hundred and fifty two numerical bounds pass. Nervous Machine reran it on November seventh, on FLINT with the one public fix it needs, and it passed.",
+   "status": "resolved_learned",
+   "opened_cycle": 3,
+   "priority": 1,
+   "history": [
+    {
+     "cycle": 3,
+     "hypothesis": "the certificate program's reported pass",
+     "before_data": false,
+     "result": "reported by the authors; not rerun by anyone outside"
+    },
+    {
+     "cycle": 6,
+     "hypothesis": "stock FLINT, python-flint 0.9.0 wheel",
+     "before_data": true,
+     "result": "failed the certificate's regression, as predicted"
+    },
+    {
+     "cycle": 6,
+     "hypothesis": "FLINT 3.6.0 plus upstream fix 7ad753d (pull request 2790)",
+     "before_data": true,
+     "result": "passed the regression"
+    },
+    {
+     "cycle": 6,
+     "hypothesis": "full certificate rerun on the fixed library",
+     "before_data": true,
+     "result": "passed"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "an independent rerun of the numerical certificate",
+     "kind": "rerun",
+     "external": true,
+     "who_could_act": "any group: FLINT 3.6.0 plus public upstream fix 7ad753d, python-flint 0.9.0 built from source"
+    }
+   ],
+   "ask": {
+    "spoken": "Closed on November seventh: Nervous Machine reran the certificate independently and it passed. A second party rerunning it would strengthen the record."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "gap_id": "G2",
+   "title": "Do the formal statements say what a mathematician means?",
+   "spoken": "The checkers confirm the proof reaches its stated goals. Whether those goals say exactly what the paper claims is a human judgment nobody has publicly made.",
+   "status": "proposed",
+   "opened_cycle": 3,
+   "priority": 2,
+   "history": [
+    {
+     "cycle": 3,
+     "hypothesis": "Comparator's match to the stated formal goals",
+     "before_data": false,
+     "result": "confirms the proof matches the goals, not that the goals are right"
+    },
+    {
+     "cycle": 3,
+     "hypothesis": "the authors' own review status",
+     "before_data": false,
+     "result": "the repository's formalization.yaml records self-assessed, with no independent human semantic review"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "a number theorist reads the three formal goal statements",
+     "kind": "research",
+     "external": true,
+     "who_could_act": "an independent number theorist"
+    }
+   ],
+   "ask": {
+    "spoken": "A number theorist should read the three goal statements in the formal files and confirm they say what the paper claims."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "gap_id": "G3",
+   "title": "The two classical exponential-sum bounds are assumed in Lean",
+   "spoken": "Both are standard results and held in spot checks, but the formal proof takes them on trust.",
+   "status": "proposed",
+   "opened_cycle": 3,
+   "priority": 3,
+   "history": [
+    {
+     "cycle": 5,
+     "hypothesis": "spot checks on small primes",
+     "before_data": true,
+     "result": "held with room to spare"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "formalize the two bounds in Lean, or accept them as standard literature",
+     "kind": "research",
+     "external": true,
+     "who_could_act": "the Lean community"
+    }
+   ],
+   "ask": {
+    "spoken": "Either formalize the two classical bounds or record that the field accepts them as standard."
+   },
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "gap_id": "G4",
+   "title": "No independent review of the written proof",
+   "spoken": "The paper has not been refereed, and no independent expert has reported reading it through.",
+   "status": "proposed",
+   "opened_cycle": 3,
+   "priority": 4,
+   "history": [
+    {
+     "cycle": 4,
+     "hypothesis": "public record through early November",
+     "before_data": false,
+     "result": "none reported"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "referee or independent expert review of the paper",
+     "kind": "research",
+     "external": true,
+     "who_could_act": "a journal or independent experts"
+    }
+   ],
+   "ask": {
+    "spoken": "The written proof needs an independent expert read or a referee report."
+   },
+   "audience": "briefing"
+  }
+ ],
+ "anomalies": [],
+ "background": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "term": "Bounded gaps between primes",
+   "also_called": [],
+   "spoken": "Primes thin out as numbers grow, but some pairs stay close forever. The question is how close: the smallest gap that keeps recurring. The twin prime conjecture says it is two. Since 2013 mathematicians have proved it is finite and pushed the proven bound down.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "term": "Admissible list",
+   "also_called": [],
+   "spoken": "A list of numbers is admissible if, for every prime, it leaves out at least one remainder. Lists that fail this can never all be prime together, so only admissible lists are candidates.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "term": "Lean",
+   "also_called": [],
+   "spoken": "A proof assistant: software that checks every logical step of a proof. A proof that Lean accepts has no gaps in its logic, but anything stated as an assumption is taken on trust.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "term": "Assumption, in a formal proof",
+   "also_called": [],
+   "spoken": "A statement the proof uses without proving it. If an assumption is false, the formal proof shows nothing, which is why each one has to be checked separately.",
+   "source": "general"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "term": "Kloosterman sum",
+   "also_called": [],
+   "spoken": "A sum of waves whose sizes are tied to arithmetic. Bounds on these sums, proved decades ago, control how evenly primes spread across remainders.",
+   "source": "general"
+  }
+ ],
+ "sessions": []
+}

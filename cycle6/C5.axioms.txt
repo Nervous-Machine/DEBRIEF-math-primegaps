@@ -1,0 +1,19 @@
+'PrimeGap186.dhl_40_2' depends on axioms: [propext,
+ Classical.choice,
+ PrimeGap186.kloosterman2_correlation_bound,
+ PrimeGap186.kloosterman3_bound,
+ PrimeGap186.physical_integral_bounds,
+ Quot.sound]
+'PrimeGap186.infinite_two_prime_translates_admissibleTuple' depends on axioms: [propext,
+ Classical.choice,
+ PrimeGap186.kloosterman2_correlation_bound,
+ PrimeGap186.kloosterman3_bound,
+ PrimeGap186.physical_integral_bounds,
+ Quot.sound]
+'PrimeGap186.primeGapLiminf_le_186' depends on axioms: [propext,
+ Classical.choice,
+ PrimeGap186.kloosterman2_correlation_bound,
+ PrimeGap186.kloosterman3_bound,
+ PrimeGap186.physical_integral_bounds,
+ Quot.sound]
+axiom_print_wall=2.81 s rss=7369824 kB

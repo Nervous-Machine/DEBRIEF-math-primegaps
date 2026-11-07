@@ -1,0 +1,9 @@
++ go build -o /home/runner/go/bin/landrun ./cmd/landrun
+go: downloading github.com/urfave/cli/v3 v3.6.2
+go: downloading github.com/landlock-lsm/go-landlock v0.10.1
+go: downloading golang.org/x/sys v0.40.0
+go: downloading kernel.org/pub/linux/libs/security/libcap/psx v1.2.77
+landrun_build_exit=0
+nanoda_build_exit=0
+-rwxrwxr-x 1 runner runner 6829832 Nov  7 11:39 /home/runner/go/bin/landrun
+-rwxrwxr-x 2 runner runner 1359912 Nov  7 11:39 /home/runner/work/nanoda_lib/target/release/nanoda_bin

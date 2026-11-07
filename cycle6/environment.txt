@@ -1,0 +1,8 @@
+Linux lima-primegaps 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:28:02 UTC 2026 aarch64 GNU/Linux
+20
+               total        used        free      shared  buff/cache   available
+Mem:              98           1          93           0           3          96
+go version go1.27.3 linux/arm64
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+elan 4.2.4 (227caca13 2026-08-25)
+Python 3.14.4

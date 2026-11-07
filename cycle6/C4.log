@@ -1,0 +1,13 @@
+++ date -u +%FT%TZ
++ echo 'start 2026-11-07T19:39:32Z'
+start 2026-11-07T19:39:32Z
++ cat lean-toolchain
+leanprover/lean4:v4.34.0-rc2
+cache_get_exit=0 2026-11-07T19:41:01Z
+Lean (version 4.34.0-rc2, aarch64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)
+Lake version 5.0.0-src+6a10ac8 (Lean version 4.34.0-rc2)
+build_exit=0 2026-11-07T19:50:33Z
+warning_lines=0
+error_lines=0
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 9:32.68
+	Maximum resident set size (kbytes): 28511284

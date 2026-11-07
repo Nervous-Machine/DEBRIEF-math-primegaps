@@ -1,0 +1,22 @@
++ lake build lean4export/lean4export
+✔ [3/7] Built Export (1.3s)
+✔ [4/7] Built Main (575ms)
+✔ [5/7] Built Main:c.o (111ms)
+✔ [6/7] Built Export:c.o (1.4s)
+✔ [7/7] Built lean4export:exe (615ms)
+Build completed successfully (7 jobs).
++ lake build Comparator/comparator
+✔ [3/15] Built Comparator.Util (165ms)
+✔ [4/15] Built Comparator.Util:c.o (69ms)
+✔ [5/15] Built Export.Parse (886ms)
+✔ [6/15] Built Comparator.Axioms (284ms)
+✔ [7/15] Built Comparator.Axioms:c.o (170ms)
+✔ [8/15] Built Comparator.Compare (312ms)
+✔ [9/15] Built Comparator (158ms)
+✔ [10/15] Built Comparator.Compare:c.o (225ms)
+✔ [11/15] Built Comparator:c.o (34ms)
+✔ [12/15] Built Main (855ms)
+✔ [13/15] Built Export.Parse:c.o (1.9s)
+✔ [14/15] Built Main:c.o (502ms)
+✔ [15/15] Built comparator:exe (464ms)
+Build completed successfully (15 jobs).
