@@ -1,5 +1,7 @@
 # An independent rerun of openai/PrimeGaps186
 
+_This repository was `primegaps-186-rerun` until 8 November 2026. It is now the first mission of the DEBRIEF register, named `DEBRIEF-domain-regime`; the protocol repository (schema, rules, tools) is being prepared and will be linked here when public. The old URL redirects._
+
 **Status, 7 November 2026.** OpenAI's conditional Lean development for the bound "infinitely many pairs of primes are at
 most 186 apart" rebuilds from the pinned sources, passes its own checkers (Comparator, the Nanoda kernel and Lean's
 kernel) on exactly the six permitted axioms, and its numerical certificate runs to completion and passes, on one

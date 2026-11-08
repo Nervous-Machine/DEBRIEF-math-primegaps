@@ -413,5 +413,5 @@ For a reviewer who is prepared to put their name to a reading. Each line is a ye
 
 A reviewer who signs A1–A3 and B1–B2 has closed the semantic question for the conclusion and for the shape of the
 exponential-sum inputs. A reviewer who signs C3 has closed it for the numerical input. Either is a public first.
-Send it as an issue titled "Semantic read" on github.com/Nervous-Machine/primegaps-186-rerun, or anywhere public;
+Send it as an issue titled "Semantic read" on github.com/Nervous-Machine/DEBRIEF-math-primegaps, or anywhere public;
 the ledger will record it by date.
