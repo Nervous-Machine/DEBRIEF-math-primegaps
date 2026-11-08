@@ -1,0 +1,78 @@
+line	kind	name	docstring_first_sentence
+31	def	normalizedKloosterman3	The rank-three Kloosterman sum over `ZMod p`, normalized by `1 / p`.
+41	def	unnormalizedKloosterman2	The unnormalized classical Kloosterman sum `∑ u ≠ 0, ψ(u + c / u)` over the prime field, indexed by its units.
+48	axiom	PrimeGap186.kloosterman3_bound	
+52	axiom	PrimeGap186.kloosterman2_correlation_bound	
+66	def	weightedEmpirical	The finite atomic measure assigning weight `max (x i) 0` to each sample `x i`.
+76	def	finitePoissonLaw	The pushforward obtained by drawing a Poisson count of mean `μ.mass`, drawing locations from `μ.normalize`, and forming their weighted empirical measure.
+87	def	cappedDyadicIntensity	The finite measure with density `1 / u` on `(0, ζ] ∩ (2^k, 2^(k+1)]`.
+114	def	finiteFragments	Sum a doubly infinite family of fragment measures when the resulting measure has finite mass; return the zero measure otherwise.
+123	def	fragmentLaw	For positive `ζ`, the probability law of the finite weighted fragment measure.
+133	abbrev	OuterBoundRow	An outer-table row `(scale, rootBound, faceBound, budget)`.
+140	abbrev	InnerBoundRow	An inner-table row `(massBound, budget)`.
+145	def	outerOrderTwoBounds	The 17 exact integer rows for the order-two outer-component bounds and their rounded budgets.
+168	def	outerOrderFiveHalvesBounds	The 35 exact integer rows for the order-`5 / 2` outer-component bounds and their rounded budgets.
+209	def	innerBaseOrderTwoBounds	The seven exact rows for order-two inner components of the base region, recording integral bounds and rounded weighted budgets.
+218	def	innerBaseOrderFiveHalvesBounds	The ten exact rows for order-`5 / 2` inner components of the base region, recording integral bounds and rounded weighted budgets.
+227	def	innerEnlargedOrderTwoBounds	The eleven exact rows for order-two inner components of the enlarged region, recording integral bounds and rounded weighted budgets.
+237	def	innerEnlargedOrderFiveHalvesBounds	The seventeen exact rows for order-`5 / 2` inner components of the enlarged region, recording integral bounds and rounded weighted budgets.
+251	def	trialAngularSignature	The eleven multisets of exponents specifying the angular power-sum monomials in the trial function.
+258	def	trialCoefficientInteger	The integer coefficient table for the eleven degree-at-most-six radial polynomials.
+286	def	trialRadialPolynomial	The radial polynomial attached to angular signature `s`, with seven coefficients taken from the exact integer table and scaled by `10⁻¹⁰`.
+293	def	angularMonomial	The product of power sums `∏ e ∈ σ, ∑ i, t i ^ e`, retaining multiplicities in `σ`.
+300	def	trialMesh	The rational mesh width `(2742997 / 2624989) / 98304` used to discretize fragment masses.
+303	def	trialLargestCap	The largest allowed fragment location, equal to `68225` mesh widths.
+309	def	trialPhysicalMeasure	The physical fragment measure at the largest cap, obtained by scaling the fragment probability law by `exp(γ)` times that cap.
+317	def	trialCellIndex	The natural-number floor of a fragment measure's total mass divided by the mesh width.
+321	def	trialCellMidpoint	The rational midpoint `(j + 1 / 2) * trialMesh` of mesh cell `j`.
+327	def	trialProfile	The two-pole rational profile with weights `21 / 200` and `179 / 200`, used multiplicatively in the trial function.
+331	def	trialProfileValue	The exact rational trial-profile value at the midpoint of mesh cell `j`.
+334	def	trialProfileNormalizer	
+341	def	trialOuterMask	The indicator of the admissible 40-coordinate outer region: the summed cell index is at most `98263`, and every fragment measure obeys the radial band's location cap.
+355	def	trialBaseMask	The indicator of the base 39-coordinate region, with summed cell index at most `89524` and the corresponding piecewise fragment-location cap.
+369	def	trialEnlargedMask	The indicator of the enlarged 39-coordinate region, with summed cell index at most `89914` and its piecewise fragment-location cap.
+383	def	trialFullMask	The indicator of the full 39-coordinate region: summed cell index at most `98263` and no fragment mass above the largest cap.
+396	def	trialCore	The masked trial expression: a product of one-variable profiles times eleven radial-polynomial/angular-monomial terms.
+403	def	trialStepFunction	
+406	def	trialMarginal	
+414	def	trialPhysicalNormalizer	The fortieth power of the mesh-weighted one-dimensional squared-profile sum, used to normalize all trial integrals.
+421	def	trialIH	The normalized squared `L²` integral of the 40-coordinate step trial function under the product physical measure.
+429	def	trialJ0	The normalized sum of squared coordinate marginals integrated over the base 39-coordinate region.
+439	def	trialJPlus	The normalized sum of squared coordinate marginals on the enlarged region outside the base region.
+449	def	trialJTail	The normalized sum of squared coordinate marginals on the full region outside the enlarged region.
+459	def	trialJLambdaH	The signed trial marginal functional combining the base, enlargement, and tail contributions with the specified exact rational coefficients.
+468	structure	PhysicalSourceRowData	Exact rational geometry for one source row: its order, radial band, activation level, outer and inner core radii, and their thresholds.
+509	def	physicalSourceRho	The fixed rational density parameter `262499 / 1000000` used in source-row geometry.
+512	def	physicalSourceOuterRadius	The outer radial cutoff, equal to `98304` mesh widths.
+515	def	physicalSourceInnerRadius	The inner radial cutoff for the base (`ν = 0`) or enlarged (`ν = 1`) source family.
+522	def	physicalSourceAdvance	The positive radial advance `10⁻⁷ / physicalSourceRho` separating source thresholds from the cutoff radii.
+528	def	physicalSourceOrder	Assign source rows to orders one, two, and three using the index bands below `12`, from `12` to `23`, and from `24` onward.
+535	def	physicalSourceAffine	The rational intercept and slope governing the source-row activation inequality, selected by source family and row order.
+547	def	physicalSourceOmegaPrefix	The recursively advanced rational source parameter, starting at zero and capped at the family-specific terminal value.
+562	def	physicalSourceRow	Construct the exact row geometry from two successive source parameters.
+584	structure	PhysicalSourceGroupData	In both TeX documents, `cap` is the group cap `z_G` and `split` is `p_G`.
+626	def	physicalSourceGroup	The six covering groups: two outer groups, two base inner groups, and two enlarged inner groups, each pair having orders `2` and `5 / 2`.
+663	def	physicalSourceRows	The finite set of source-family and row-index pairs assigned to covering group `g`.
+676	def	physicalSourceLowBoundaries	The exact rational endpoints partitioning the low-fragment part of group `g`, from its activation level to its splitting point.
+694	def	physicalSourceRankFractions	The rational subdivision fractions used to partition the rank component interval between its lower endpoint and the group cap.
+704	def	physicalSourceLowCount	The number of consecutive low-fragment intervals, one less than the boundary-list length.
+709	def	physicalSourceRankCount	The number of consecutive rank intervals, one less than the subdivision-fraction list length.
+715	def	physicalSourceRowCount	The total number of covering components: all low intervals, all rank intervals, and one triple-count component.
+722	def	physicalSourceComponentKind	Encode a component as `0` for low-fragment, `1` for rank, or `2` for triple-count.
+730	def	physicalSourceComponentEndpoints	The rational endpoints of the chosen component: consecutive low boundaries, affinely rescaled rank fractions, or the split-to-cap interval for the triple-count component.
+746	def	physicalSourceTheta	The exponential tilt for a low-fragment component, rounded upward from `7 / upperEndpoint` or `9 / upperEndpoint`, with the specified exceptional value `120`.
+758	def	physicalSourceLowClipping	The lower radial clipping level obtained from eligible source rows activated below `u`, including rows absorbed from the preceding group where prescribed.
+778	def	physicalSourceAlignedCapIndex	The fragment-cap index aligned with radial cell sum `r`, using the outer, base-inner, or enlarged-inner piecewise schedule according to the group.
+790	def	physicalSourceRadialMask	The indicator that a component exists and its radial cell sum satisfies the global cutoff and clipped group bounds.
+809	def	physicalSourceCountMeasure	Sum the coordinate fragment measures on positive locations and divide their density by the location.
+819	def	physicalSourceCover	The nonnegative covering weight for one physical component, subject to radial and fragment-cap masks.
+851	def	physicalSourceFaceWeight	The absolute-coefficient envelope on a 39-coordinate face: `1` on the base region, the larger enlargement/tail coefficient magnitude on the enlarged region, and the tail coefficient magnitude elsewhere.
+865	def	physicalSourceOuterRoot	The normalized outer-component integral of the squared trial function, summed over all 40 faces and weighted by the covering function and face-coefficient envelope.
+876	def	physicalSourceOuterFace	The normalized outer-component integral of the squared face marginal, summed over all 40 faces with the covering function and face-coefficient envelope.
+887	def	physicalSourceInnerMass	The normalized covering-weighted squared-marginal integral for an inner component, summed over coordinates.
+896	axiom	PrimeGap186.physical_integral_bounds	
+937	def	admissibleTuple	The forty shifts of diameter 186 in Equation (1.3) of the main paper, used in the proof of Corollary 1.2.
+943	def	primeGapLiminf	The extended-real liminf of consecutive prime gaps; `Nat.nth Nat.Prime 0 = 2`.
+950	theorem	dhl_40_2	Theorem 1.1 of the main paper: every admissible integer 40-tuple has two-prime translates.
+957	theorem	infinite_two_prime_translates_admissibleTuple	Supporting conclusion in the proof of Corollary 1.2 for the explicit admissible tuple.
+963	theorem	primeGapLiminf_le_186	Corollary 1.2 of the main paper: the lower limit of consecutive prime gaps is at most 186.

@@ -1,0 +1,59 @@
+# Pre-registration, cycle 7: a definitional trace of Challenge.lean for human semantic review
+# Written 2026-11-08 after reading Challenge.lean (pinned copy, sha256 b99a403b…) and formalization.yaml, and BEFORE
+# reading the main paper "Improved short gaps between primes" (cdn.openai.com short_gaps.pdf) or comparing the
+# formal statements to it. Changes after this point go in an amendment at the end of this file.
+
+cycle: 7
+dated: "2026-11-08"
+question: >
+  Can the open semantic gap (G2: do the three formal goal statements and the three axioms say what the paper claims?)
+  be made cheaper for a human reviewer, by laying out each statement, every definition it depends on down to Mathlib,
+  and a plain-language rendering, with the paper location to compare against?
+
+what_this_cycle_is:
+  - "An aid for review. It produces a document, primegaps/trace/DEFINITIONAL-TRACE.md, and a machine transcript of the
+     statements as Lean prints them (lake env lean on a file that #check's and #print's them)."
+  - "The renderings in the trace are written by the operating agent (Claude Code) reading Lean and Mathlib source. They
+     are a reading, not a check."
+
+what_this_cycle_is_not:
+  - "It is not an independent human semantic review. G2 stays open after this cycle whatever the trace says. The trace
+     does not move any standing."
+  - "It does not formalize or prove anything."
+
+rules:
+  R1: "Every Lean statement in the trace is quoted verbatim from the pinned Challenge.lean or from the Mathlib revision
+       pinned by lake-manifest.json (rev bbcd1968), with file and line."
+  R2: "Each rendering is marked as the agent's reading. Where the agent is unsure what a definition means, it says so
+       rather than guessing."
+  R3: "Any place where the formal statement and the paper's statement differ in a way the agent can see (a constant, a
+       normalization, an index convention, a labeling) is recorded as a discrepancy in the trace and as an anomaly in
+       the ledger, whether or not it looks harmless."
+  R4: "The agent does not attempt to judge whether the axioms are true theorems. It only compares their text to the
+       paper's statements of the inputs."
+
+observed_before_this_prereg:
+  - "Challenge.lean docstrings label primeGapLiminf_le_186 as 'Corollary 1.2 of the main paper' and admissibleTuple as
+     'Equation (1.3) of the main paper, used in the proof of Corollary 1.2'. formalization.yaml aligns the same
+     declaration to 'Theorem 1.1 (consecutive-prime gap liminf)'. Whether the paper has a Corollary 1.2 is to be
+     checked against the paper. Recorded here so it does not count as a prediction."
+  - "lake env lean prints the three statements with the same text as the source; admissibleTuple.card = 40, max 186,
+     min 0 (#eval in the built development)."
+
+predictions:
+  P1: "The paper's main theorem states lim inf (p_{n+1} - p_n) <= 186 and DHL[40,2] in the ordinary sense, and the
+       three Lean goals render to those statements without a constant or convention mismatch."
+  P2: "The paper states the two Kloosterman inputs with the same constants as the axioms (3 for the normalized rank-3
+       sum; 8 p sqrt p for the rank-2 correlation), possibly in a different normalization; if the normalization
+       differs the trace records exactly how."
+  P3: "The third axiom's numbers (23685317816e-24, 23685317890e-24, 90248755123e-24, and the per-component table
+       bounds) appear verbatim in the numerics paper's Lemma 2.5 and Tables 2.1-2.6."
+  P4: "At least one labeling discrepancy (the Corollary 1.2 / Theorem 1.1 point above, or similar) will be found; no
+       discrepancy affecting the mathematical content will be found by the agent. If one is, it is reported as such."
+
+standing_consequences:
+  any_outcome: "G2 remains open. Its ask changes from 'read Challenge.lean' to 'read the trace against Challenge.lean
+                and the paper, and say whether the renderings are right'."
+  discrepancy_found: "An anomaly is opened naming it. If it is in an axiom's constant or normalization, finding P4 of
+                      the ledger is rewritten to say the inputs as stated may not be the literature's, and the
+                      public README is updated the same day."

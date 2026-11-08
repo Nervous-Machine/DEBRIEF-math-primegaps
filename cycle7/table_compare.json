@@ -1,0 +1,95 @@
+{
+ "source": "Challenge.lean",
+ "numerics_text": "numerics.txt",
+ "checks": {
+  "table_1_1_trial_coefficients": {
+   "ok": true,
+   "lean_rows": 11,
+   "paper_rows": 11,
+   "entries": 77
+  },
+  "table_2_1_outer_order_two": {
+   "ok": true,
+   "rows": 17,
+   "paper_rows": 17
+  },
+  "table_2_2_outer_order_five_halves": {
+   "ok": true,
+   "rows": 35,
+   "paper_rows": 35
+  },
+  "table_2_3_inner_base_order_two": {
+   "ok": true,
+   "rows": 7,
+   "paper_rows": 7
+  },
+  "table_2_4_inner_base_order_five_halves": {
+   "ok": true,
+   "rows": 10,
+   "paper_rows": 10
+  },
+  "table_2_5_inner_enlarged_order_two": {
+   "ok": true,
+   "rows": 11,
+   "paper_rows": 11
+  },
+  "table_2_6_inner_enlarged_order_five_halves": {
+   "ok": true,
+   "rows": 17,
+   "paper_rows": 17
+  },
+  "component_count_97": {
+   "ok": true
+  },
+  "axiom_inequality_count_152": {
+   "ok": true
+  },
+  "budget_inequalities_2_30_2_31_hold_exactly": {
+   "ok": true,
+   "violations": []
+  },
+  "group_totals_match_table_2_7": {
+   "ok": true,
+   "totals": {
+    "O2": 38927522,
+    "O5/2": 622829241
+   }
+  },
+  "grand_total_696075110": {
+   "ok": true,
+   "grand_total": 696075110
+  },
+  "lemma_2_5_scalars_in_axiom": {
+   "ok": true
+  },
+  "lemma_2_5_scalars_in_paper": {
+   "ok": true
+  },
+  "axiom_divides_by_IH_lower": {
+   "ok": true
+  },
+  "mask_caps_1_5": {
+   "ok": true
+  },
+  "constants_shared": {
+   "ok": true
+  },
+  "d0_44415113_not_in_statement_file": {
+   "ok": true,
+   "present": false,
+   "note": "d0 is the old-inner restoration coefficient of (2.28); absent from Challenge.lean means the Lean proof does not carry it as a named constant in the statement file"
+  },
+  "corollary_2_6_margin_exact": {
+   "ok": true,
+   "margin": "230382667/10000000000000",
+   "margin_float": 2.30382667e-05
+  },
+  "largest_cap_68225_is_floor_of_zeta_over_h": {
+   "ok": true,
+   "zeta": "190370/262499",
+   "zeta_over_h": 68225.10323846331,
+   "note": "Lean's cap 68225*h is the paper's zeta rounded down to the grid, not zeta itself; consistent with section 1.1"
+  }
+ },
+ "all_ok": true
+}

@@ -7,7 +7,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -24,11 +24,12 @@
    "record_quality": "reconstructed",
    "record_note": "Replayed from the public record, dated by first public posting; Nervous Machine's own checks were registered before they ran.",
    "record_limits": [
-    "The Lean build, Comparator and the certificate were rerun by Nervous Machine on one machine; no second independent party has reported a rerun."
+    "The Lean build, Comparator and the certificate were rerun by Nervous Machine on one machine; no second independent party has reported a rerun.",
+    "The definitional trace's plain-language readings are the operating agent's, not a mathematician's; no human has signed its checklist."
    ],
    "scope_limits": [
     "Nervous Machine keeps score of the checks; it does not check the mathematics line by line.",
-    "Public record through November seventh, 2026."
+    "Public record through November eighth, 2026."
    ],
    "opening": {
     "spoken": "This briefing walks through a claimed new record in number theory: that infinitely many pairs of primes sit at most one hundred and eighty six apart. I will tell you what was claimed, what has been checked and by whom, and what still has to happen before it counts as settled."
@@ -37,7 +38,7 @@
     "spoken": "In early September, OpenAI posted a proof credited to its model GPT 6 Astra that infinitely many pairs of primes are at most one hundred and eighty six apart, beating the 2014 record of two hundred and forty six. The same week, Hanxin Zhang and Julia Stadlmann each reached two hundred and forty and Axiom Math announced two hundred and twelve by related routes, so the approach is credible. The logic of OpenAI's proof is fully machine-checked in Lean, but it rests on three inputs that were taken as given: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds computed by a separate program. Nervous Machine checked what can be checked directly. The forty-number list is correct, and the two classical bounds hold with room to spare on every small prime tested. Nervous Machine then reran OpenAI's own checks: the Lean build, the Comparator match and both kernel checks all passed, and the numerical certificate ran to completion and passed on a publicly buildable library. What is still open is human: no number theorist has publicly confirmed the formal statements say what the paper claims, and the written proof has not been refereed. My read: conditionally supported, with the computation independently reproduced; not yet settled."
    },
    "what_happened": {
-    "spoken": "The starting point. In 2014 the Polymath 8 project, building on work by Yitang Zhang and James Maynard, showed that infinitely many pairs of primes sit at most two hundred and forty six apart. That paper itself noted a route to do better, using stronger inputs on how primes spread across remainders, but said the resulting calculations were hard to carry out at the size needed. Two proofs of two hundred and forty appeared within four days of each other, the first improvement in more than a decade. Hanxin Zhang deposited one on August twenty eighth, with the discovery credited to the model GPT 5.6 Sol and an exact-arithmetic certificate released alongside it. Julia Stadlmann posted hers on August thirty first, by a related route and with no AI involved. Neither cites the other. Both are preprints and neither has been refereed. On September third, Axiom Math announced two hundred and twelve. Its preliminary draft, by nine named authors, uses a forty-five-number list and says the company's prover produced a Lean certificate of the deduction, taking five analytic estimates and a separately checked variational certificate as hypotheses. That certificate has not been published; Axiom's public Lean library covers only the older bounds of two hundred and forty six and six hundred. OpenAI posted a paper, dated August thirtieth and credited to its model GPT 6 Astra, claiming one hundred and eighty six. The claim is that a particular list of forty numbers, spanning one hundred and eighty six, has infinitely many shifted copies containing two primes. The logical argument is written in Lean and was checked by Lean itself, by a second independent checker called Nanoda, and by a tool called Comparator that confirms the proved statements match the ones set out in advance. The argument rests on three stated inputs that were not proved in Lean: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds, which a separate program computes. In plain terms, the method gives each shifted copy of the list a weight, so copies likely to hold two primes count more. New conditions on how those weights factor let them reach further than the 2014 method allowed, and a large numerical optimization then shows that forty numbers are enough. Through early November, no independent verification of the full bound was reported. Terence Tao's optimization-problems page lists one hundred and eighty six as the record and states that no bound was independently verified and that neither the Lean build nor the numerical certificate was rerun there. MathWorld's table, updated November fifth, lists it as a conditional Lean proof with no independent verification reported. Reporting in Science News quoted mathematicians on credit and conduct; none described checking the proof. The repository has one commit, no issues and no pull requests. Nervous Machine ran three checks it had written down first. The list of forty numbers does span one hundred and eighty six and leaves out at least one remainder for every prime, which is what the argument needs. The two classical exponential-sum bounds were tested exactly as they are written in the Lean files, on every small prime up to ninety seven and sixty one. Both held with room to spare: the largest value seen was about 2.4 against a limit of three, and the correlation never passed 46 percent of its limit. Those tests support the inputs but do not prove them. Nervous Machine then reran OpenAI's own checks on a Linux virtual machine, under a second pre-registration written before anything ran. The Lean development built from the pinned sources with no errors and no warnings, in under ten minutes. Comparator matched the three formal statements to the published challenge file, and both the Nanoda kernel and Lean's own kernel accepted the proofs, using exactly the six permitted axioms. The numerical certificate's startup test failed on the stock FLINT library, as predicted, and that pointed to the missing piece: the custom build OpenAI described is FLINT three point six with one public upstream fix, merged in August and in no release yet. Built that way, the library passed the test. The certificate program itself then ran to completion with four workers and reported a pass, in 1:03:48."
+    "spoken": "The starting point. In 2014 the Polymath 8 project, building on work by Yitang Zhang and James Maynard, showed that infinitely many pairs of primes sit at most two hundred and forty six apart. That paper itself noted a route to do better, using stronger inputs on how primes spread across remainders, but said the resulting calculations were hard to carry out at the size needed. Two proofs of two hundred and forty appeared within four days of each other, the first improvement in more than a decade. Hanxin Zhang deposited one on August twenty eighth, with the discovery credited to the model GPT 5.6 Sol and an exact-arithmetic certificate released alongside it. Julia Stadlmann posted hers on August thirty first, by a related route and with no AI involved. Neither cites the other. Both are preprints and neither has been refereed. On September third, Axiom Math announced two hundred and twelve. Its preliminary draft, by nine named authors, uses a forty-five-number list and says the company's prover produced a Lean certificate of the deduction, taking five analytic estimates and a separately checked variational certificate as hypotheses. That certificate has not been published; Axiom's public Lean library covers only the older bounds of two hundred and forty six and six hundred. OpenAI posted a paper, dated August thirtieth and credited to its model GPT 6 Astra, claiming one hundred and eighty six. The claim is that a particular list of forty numbers, spanning one hundred and eighty six, has infinitely many shifted copies containing two primes. The logical argument is written in Lean and was checked by Lean itself, by a second independent checker called Nanoda, and by a tool called Comparator that confirms the proved statements match the ones set out in advance. The argument rests on three stated inputs that were not proved in Lean: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds, which a separate program computes. In plain terms, the method gives each shifted copy of the list a weight, so copies likely to hold two primes count more. New conditions on how those weights factor let them reach further than the 2014 method allowed, and a large numerical optimization then shows that forty numbers are enough. Through early November, no independent verification of the full bound was reported. Terence Tao's optimization-problems page lists one hundred and eighty six as the record and states that no bound was independently verified and that neither the Lean build nor the numerical certificate was rerun there. MathWorld's table, updated November fifth, lists it as a conditional Lean proof with no independent verification reported. Reporting in Science News quoted mathematicians on credit and conduct; none described checking the proof. The repository has one commit, no issues and no pull requests. Nervous Machine ran three checks it had written down first. The list of forty numbers does span one hundred and eighty six and leaves out at least one remainder for every prime, which is what the argument needs. The two classical exponential-sum bounds were tested exactly as they are written in the Lean files, on every small prime up to ninety seven and sixty one. Both held with room to spare: the largest value seen was about 2.4 against a limit of three, and the correlation never passed 46 percent of its limit. Those tests support the inputs but do not prove them. Nervous Machine then reran OpenAI's own checks on a Linux virtual machine, under a second pre-registration written before anything ran. The Lean development built from the pinned sources with no errors and no warnings, in under ten minutes. Comparator matched the three formal statements to the published challenge file, and both the Nanoda kernel and Lean's own kernel accepted the proofs, using exactly the six permitted axioms. The numerical certificate's startup test failed on the stock FLINT library, as predicted, and that pointed to the missing piece: the custom build OpenAI described is FLINT three point six with one public upstream fix, merged in August and in no release yet. Built that way, the library passed the test. The certificate program itself then ran to completion with four workers and reported a pass, in 1:03:48. On November eighth, Nervous Machine prepared a reading guide for the one open input that no machine can settle: whether the formal statements say what the paper claims. Each of the three goal statements and three assumptions was quoted exactly, traced to its definitions down to the standard library, and given a plain-language reading next to the place in the paper it should match. Every number in the formal file was also compared mechanically with the numerical certificate paper, and all of them match. One slip was found in the repository's metadata file, which labels the final statement as the theorem where the paper calls it the corollary; it does not affect the content. The readings are the system's, not a mathematician's, so nothing changed standing. The guide exists so that a number theorist's review takes an hour instead of a day."
    },
    "implications": {
     "rely_on": [
@@ -76,7 +77,7 @@
     ],
     "new": [
      {
-      "spoken": "The fastest remaining step is a number theorist reading the three goal statements in the challenge file.",
+      "spoken": "The fastest remaining step is a number theorist reading the definitional trace against the challenge file and the paper, and signing or refusing its checklist. Its first two parts take under an hour.",
       "finding_ids": [],
       "audience": "briefing"
      }
@@ -137,6 +138,18 @@
     {
      "kind": "reference",
      "ref": "flintlib/flint pull request 2790, commit 7ad753d (merged 2026-08-11, unreleased)"
+    },
+    {
+     "kind": "paper",
+     "ref": "OpenAI, Improved short gaps between primes, cdn.openai.com short_gaps.pdf, sha256 456f05e0a3ef589e... (read 2026-11-08)"
+    },
+    {
+     "kind": "trace",
+     "ref": "nm-trust-trial/debrief/primegaps/trace/DEFINITIONAL-TRACE.md (2026-11-08); machine checks in primegaps/cycle7/"
+    },
+    {
+     "kind": "public",
+     "ref": "github.com/Nervous-Machine/primegaps-186-rerun"
     }
    ],
    "internal_prose": []
@@ -150,7 +163,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -188,7 +201,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -227,7 +240,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -265,7 +278,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -313,7 +326,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -350,7 +363,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -391,7 +404,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -433,6 +446,51 @@
     "G1"
    ],
    "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "cycle": 7,
+   "dated": "2026-11-08",
+   "preregistered": {
+    "question": "Can the open semantic question, whether the formal statements say what the paper claims, be made cheaper for a human reviewer?",
+    "rule": "pre-registered in primegaps/prereg_cycle7.yaml before the main paper was read: a definitional trace with the agent's renderings, every number table compared mechanically, discrepancies recorded whether harmless or not; standing unchanged by construction",
+    "predictions": [],
+    "commit": "primegaps/prereg_cycle7.yaml",
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "statements_traced": 6,
+     "declarations_indexed": 77,
+     "table_checks": 20,
+     "all_tables_match": true,
+     "discrepancies_recorded": 7,
+     "content_affecting_discrepancies_seen_by_agent": 0,
+     "human_review": false
+    }
+   },
+   "spoken": "On November eighth, Nervous Machine prepared a reading guide for the one open input that no machine can settle: whether the formal statements say what the paper claims. Each of the three goal statements and three assumptions was quoted exactly, traced to its definitions down to the standard library, and given a plain-language reading next to the place in the paper it should match. Every number in the formal file was also compared mechanically with the numerical certificate paper, and all of them match. One slip was found in the repository's metadata file, which labels the final statement as the theorem where the paper calls it the corollary; it does not affect the content. The readings are the system's, not a mathematician's, so nothing changed standing. The guide exists so that a number theorist's review takes an hour instead of a day.",
+   "finding_ids": [
+    "P10"
+   ],
+   "gap_ids": [
+    "G2"
+   ],
+   "audience": "briefing"
   }
  ],
  "findings": [
@@ -443,7 +501,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -584,7 +642,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -671,7 +729,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -711,7 +769,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -755,7 +813,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -803,7 +861,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -846,7 +904,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -888,7 +946,52 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "finding_id": "P10",
+   "kind": "learned",
+   "spoken": "Every number in the formal statement file matches the numerics paper: the seventy seven trial coefficients, all ninety seven component rows, the mask caps, the shared constants and the three scalar bounds. The tables' own budget and margin arithmetic also hold exactly in rational arithmetic.",
+   "evidence": {
+    "numbers": {
+     "table_checks": 20,
+     "all_ok": true,
+     "component_rows": 97,
+     "trial_coefficients": 77,
+     "margin": "230382667/10000000000000"
+    },
+    "cycles": [
+     7
+    ],
+    "confirmed_by": [
+     "cycle7/compare_tables.py against the numerics paper text"
+    ]
+   },
+   "standing": {
+    "status": "certified",
+    "basis": "deterministic text comparison registered before it ran",
+    "note": "a comparison of numbers, not of meaning; the meaning of the left-hand sides is gap G2"
+   },
+   "certainty": {
+    "earned": true,
+    "note": "deterministic, reproducible check (audit regime)"
+   },
+   "edge_refs": [],
+   "audience": "briefing"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -934,7 +1037,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -980,7 +1083,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1040,7 +1143,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1050,7 +1153,7 @@
    },
    "gap_id": "G2",
    "title": "Do the formal statements say what a mathematician means?",
-   "spoken": "The checkers confirm the proof reaches its stated goals. Whether those goals say exactly what the paper claims is a human judgment nobody has publicly made.",
+   "spoken": "The checkers confirm the proof reaches its stated goals. Whether those goals say exactly what the paper claims is a human judgment nobody has publicly made. Since November eighth there is a reading guide that traces each statement to its definitions; it is an aid, not a review.",
    "status": "proposed",
    "opened_cycle": 3,
    "priority": 2,
@@ -1066,18 +1169,24 @@
      "hypothesis": "the authors' own review status",
      "before_data": false,
      "result": "the repository's formalization.yaml records self-assessed, with no independent human semantic review"
+    },
+    {
+     "cycle": 7,
+     "hypothesis": "a definitional trace with the operating agent's renderings, every table compared mechanically",
+     "before_data": true,
+     "result": "tables match; one labeling slip in the metadata; no content discrepancy seen by the agent; not a human review, standing unchanged"
     }
    ],
    "closes_with": [
     {
-     "what": "a number theorist reads the three formal goal statements",
+     "what": "a number theorist reads the definitional trace against the formal file and the paper and signs its checklist",
      "kind": "research",
      "external": true,
      "who_could_act": "an independent number theorist"
     }
    ],
    "ask": {
-    "spoken": "A number theorist should read the three goal statements in the formal files and confirm they say what the paper claims."
+    "spoken": "A number theorist should read the definitional trace against the formal file and the paper, and sign or refuse its checklist. The readings in it are the system's; the signature has to be a person's."
    },
    "audience": "briefing"
   },
@@ -1088,7 +1197,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1130,7 +1239,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1166,7 +1275,77 @@
    "audience": "briefing"
   }
  ],
- "anomalies": [],
+ "anomalies": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "anomaly_id": "A1",
+   "when": "2026-11-08",
+   "node": "formalization.yaml",
+   "spoken": "The repository's metadata file labels the final statement, that the lower limit of prime gaps is at most one hundred and eighty six, as Theorem 1.1. The paper and the Lean file's own comment call it Corollary 1.2. A labeling slip in the metadata; it does not affect the content.",
+   "status": "explained",
+   "urgency": "daily",
+   "from_trusted_node": false,
+   "evidence": {
+    "formalization_yaml": "Theorem 1.1 (consecutive-prime gap liminf)",
+    "paper": "Corollary 1.2",
+    "lean_docstring": "Corollary 1.2 of the main paper",
+    "trace": "D1"
+   },
+   "gap_id": "G2",
+   "alert": {
+    "sent": false,
+    "channel": null,
+    "at": null
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "debrief-ledger-build",
+   "created_at": "2026-10-07T00:00:00Z",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "provenance": {
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
+    "lean_source": {
+     "repo": "github.com/openai/PrimeGaps186",
+     "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
+     "file": "Challenge.lean",
+     "sha256": "b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0"
+    }
+   },
+   "anomaly_id": "A2",
+   "when": "2026-11-08",
+   "node": "primeGapLiminf",
+   "spoken": "The formal enumeration of primes counts from zero, so its n-th prime is the paper's n-plus-first. A lower limit does not depend on where counting starts. Recorded because the rule says to record every convention difference, harmless or not.",
+   "status": "explained",
+   "urgency": "daily",
+   "from_trusted_node": false,
+   "evidence": {
+    "lean": "Nat.nth Nat.Prime 0 = 2",
+    "paper": "p_1 = 2",
+    "trace": "D2"
+   },
+   "gap_id": "G2",
+   "alert": {
+    "sent": false,
+    "channel": null,
+    "at": null
+   }
+  }
+ ],
  "background": [
   {
    "schema_version": "nm-debrief-v1",
@@ -1175,7 +1354,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1195,7 +1374,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1215,7 +1394,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1235,7 +1414,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",
@@ -1255,7 +1434,7 @@
    "mission_id": "prime-gaps-186-2026-11",
    "pod": "nm-trust-trial/primegaps",
    "provenance": {
-    "source": "public record to 2026-11-07; checks registered in primegaps/prereg.yaml (amendment A1 after the checks)",
+    "source": "public record to 2026-11-08; checks registered in primegaps/prereg.yaml (amendment A1 after the checks), prereg_cycle6.yaml and prereg_cycle7.yaml",
     "lean_source": {
      "repo": "github.com/openai/PrimeGaps186",
      "commit": "61340d0b74163003b32756bb16e91d9209a5e330",

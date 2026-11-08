@@ -150,14 +150,30 @@ of machine time on 20 cores plus setup. Open an issue titled "Rerun: <your machi
 equivalent, or send a pull request adding a row to `RESULTS.md`. A failed check is as welcome as a pass; say what
 failed.
 
-**A human read of `Challenge.lean`.** If you are a number theorist and will read the three goal statements against
-the paper's main theorem and DHL[40,2], open an issue titled "Semantic read" and say what you found, in either
+**A human read of `Challenge.lean`.** Start with `trace/DEFINITIONAL-TRACE.md`. It quotes each of the three goals and
+three axioms verbatim, traces every definition down to Mathlib with file and line, gives a plain-language rendering,
+names the paper location to compare against (Theorem 1.1, Corollary 1.2, Lemma A.4; (2.30)–(2.33) of the numerics
+note), and ends with a sign-off checklist. Parts A and B take under an hour. The renderings are ours and carry no
+standing; a reviewer's signature would. Open an issue titled "Semantic read" and say what you found, in either
 direction. That one issue would close the biggest open item on this scorecard.
+
+## Cycle 7: the definitional trace (8 November 2026)
+
+Pre-registered in `prereg_cycle7.yaml` before the paper was read. `trace/DEFINITIONAL-TRACE.md` is the result.
+Alongside it, `cycle7/compare_tables.py` compared every number in `Challenge.lean` with the numerics paper: the 77
+trial coefficients, all 97 component rows, the mask caps, the shared constants, the three scalar bounds, and the
+budget and margin arithmetic in exact rationals. All match (`cycle7/table_compare.json`). One discrepancy was found,
+in `formalization.yaml`, which labels the lim inf statement "Theorem 1.1" where the paper and the Lean docstring say
+Corollary 1.2. No discrepancy affecting content was seen by the agent. The trace changed no standing: the semantic
+gap stays open until a person signs the checklist.
 
 ## Layout
 
 ```
 README.md               this file
+prereg_cycle7.yaml      pre-registration for the trace, with its hash alongside
+trace/                  DEFINITIONAL-TRACE.md, the reading guide for a semantic reviewer
+cycle7/                 lean_statements.txt, declarations.tsv, compare_tables.py, table_compare.json
 RESULTS.md              one row per independent rerun; how to add yours
 REPRODUCE.md            the recipe, step by step, from a fresh Ubuntu machine
 SCORECARD.md            the human-readable scorecard, as briefed on 7 November 2026

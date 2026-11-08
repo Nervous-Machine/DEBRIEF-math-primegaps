@@ -4,7 +4,8 @@ Ledger: `ledger/missions/primegaps.json` (built by `ledger/build_ledger.py`). Pr
 written before any check ran; amendment A1 added after the checks (Axiom wording, provenance, C3 note; verdicts unchanged).
 Lean source pinned: openai/PrimeGaps186 commit 61340d0 (2 Sep 2026), `Challenge.lean` sha256 b99a403b…, verbatim copy in
 `primegaps/source/`. Cycle 6 (independent rerun, same day): `primegaps/prereg_cycle6.yaml` written first, results in
-`primegaps/cycle6/results_cycle6.json`, logs alongside. Checks: `primegaps/checks.py` → `primegaps/results.json`. The agent's knowledge base:
+`primegaps/cycle6/results_cycle6.json`, logs alongside. Cycle 7 (2026-11-08): `primegaps/prereg_cycle7.yaml`, trace in
+`primegaps/trace/`, machine checks in `primegaps/cycle7/`. Checks: `primegaps/checks.py` → `primegaps/results.json`. The agent's knowledge base:
 `elevenlabs/knowledge_base_primegaps.generated.md`. Nervous Machine keeps score of the checks; it does not check the
 mathematics line by line.
 
@@ -64,11 +65,14 @@ OpenAI had not published, when the missing piece is a public upstream FLINT fix 
 | 4 | 2026-09-07 → 11-05 | Tao's optimization-problems page ("no bound was independently verified"), MathWorld, Science News, repo activity | no independent verification reported |
 | 5 | 2026-11-07 | Nervous Machine checks C1–C3 (registered first) | all three pass |
 | 6 | 2026-11-07 | Independent rerun, registered first (C4–C9): Lean build, Comparator + Nanoda + kernel, axiom print, stock FLINT fails regression (predicted), FLINT + fix passes, certificate passes | all predictions held |
+| 7 | 2026-11-08 | Definitional trace of `Challenge.lean` for human review, registered first (`prereg_cycle7.yaml`): each goal and axiom traced to Mathlib with a rendering and the paper location; every number table compared mechanically with the numerics paper | all tables match; one labeling discrepancy in formalization.yaml; no content discrepancy seen by the agent; G2 stays open |
 
 ## 5. What would settle it, in order
 
 1. A number theorist reads the three goal statements in `Challenge.lean` (OpenAI's own metadata: "self-assessed, no
-   independent human semantic review").
+   independent human semantic review"). Since 2026-11-08 there is a definitional trace to read against,
+   `primegaps/trace/DEFINITIONAL-TRACE.md`: Lean text, dependencies down to Mathlib, a rendering, the paper location,
+   and a sign-off checklist. The renderings are the agent's; the signature has to be a person's.
 2. A referee report or an independent expert read of the paper.
 3. Formalize the two classical bounds in Lean, or record that the field accepts them as standard.
 4. Done 2026-11-07: independent rerun of the Lean build, Comparator and `prime_gap_186_certificate.py`. A second party
