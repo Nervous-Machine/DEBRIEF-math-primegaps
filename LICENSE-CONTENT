@@ -1,0 +1,6 @@
+Ledger text (ledger/), the scorecard, results narratives, the definitional trace (trace/) and other prose in this
+repository are licensed under Creative Commons Attribution 4.0 International (CC-BY-4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Code (checks.py, cycle6/*.py, cycle7/*.py) is licensed under Apache-2.0 (see LICENSE). The vendored Lean source in
+source/ keeps its own licence (Apache-2.0, openai/PrimeGaps186).

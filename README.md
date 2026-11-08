@@ -169,6 +169,19 @@ in `formalization.yaml`, which labels the lim inf statement "Theorem 1.1" where 
 Corollary 1.2. No discrepancy affecting content was seen by the agent. The trace changed no standing: the semantic
 gap stays open until a person signs the checklist.
 
+## Contributing to this record
+
+This repository follows the DEBRIEF protocol (https://github.com/Nervous-Machine/DEBRIEF). Every contribution is one
+dated cycle in `ledger/primegaps.json`, under the contributor's own name, and contributors are listed in
+`CITATION.cff` and in each release. The open items, each with the kind of contribution that would close it, are in
+`ASKS.md`. The quickest one is a semantic read: read `trace/DEFINITIONAL-TRACE.md` and fill in the **Semantic read**
+issue form; a workflow turns it into a `read` cycle verbatim. Reruns and new claims have their own forms. Rules and
+templates: https://github.com/Nervous-Machine/DEBRIEF/blob/main/CONTRIBUTING.md.
+
+One note on the record itself: the pre-registration for cycle 5 (`prereg.yaml`, checks C1 to C3) was registered
+before the checks ran but has no `.sha256` sidecar, and it entered git in the same commit as its results, so the
+protocol's ordering check cannot confirm it from history. Cycles 6 and 7 have sidecars and check as unchanged.
+
 ## Layout
 
 ```
@@ -180,6 +193,9 @@ RESULTS.md              one row per independent rerun; how to add yours
 REPRODUCE.md            the recipe, step by step, from a fresh Ubuntu machine
 SCORECARD.md            the human-readable scorecard, as briefed on 7 November 2026
 prereg.yaml             pre-registration for cycles 0–5 and checks C1–C3, with amendment A1
+ASKS.md                 open items and the contribution kind that closes each (generated)
+cycles/                 contributed cycles, one file each, merged by the validation workflow
+CITATION.cff            how to cite this record; contributors of record
 prereg_cycle6.yaml      pre-registration for the rerun, C4–C7, with amendment A1 adding C8–C9
 prereg_cycle6.sha256    hashes of that file before and after the amendment
 checks.py, results.json C1–C3 and their output (python3 -I checks.py reruns them in seconds)

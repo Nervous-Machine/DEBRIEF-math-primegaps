@@ -1,0 +1,20 @@
+name: DEBRIEF
+on:
+  push:
+    branches: [main]
+  pull_request:
+  issues:
+    types: [opened, edited]
+jobs:
+  validate:
+    if: github.event_name != 'issues'
+    uses: Nervous-Machine/DEBRIEF/.github/workflows/validate.yml@main
+    with:
+      ledger: ledger/primegaps.json
+  issue-to-cycle:
+    if: github.event_name == 'issues'
+    uses: Nervous-Machine/DEBRIEF/.github/workflows/issue-to-cycle.yml@main
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write

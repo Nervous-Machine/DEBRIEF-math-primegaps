@@ -19,6 +19,9 @@
    "pods": [
     "nm-trust-trial/primegaps"
    ],
+   "kind": "audit",
+   "protocol_version": "0.1.0",
+   "claim_rule_met": false,
    "began": "2026-11-07",
    "status": "active",
    "record_quality": "reconstructed",
@@ -192,6 +195,7 @@
     "P3"
    ],
    "gap_ids": [],
+   "kind": "replay",
    "audience": "briefing"
   },
   {
@@ -231,6 +235,7 @@
     "P7"
    ],
    "gap_ids": [],
+   "kind": "replay",
    "audience": "briefing"
   },
   {
@@ -269,6 +274,7 @@
     "P5"
    ],
    "gap_ids": [],
+   "kind": "replay",
    "audience": "briefing"
   },
   {
@@ -317,6 +323,7 @@
     "G3",
     "G4"
    ],
+   "kind": "replay",
    "audience": "briefing"
   },
   {
@@ -354,6 +361,7 @@
     "G2",
     "G4"
    ],
+   "kind": "replay",
    "audience": "briefing"
   },
   {
@@ -377,8 +385,11 @@
     "question": "Do the parts that can be checked directly hold up?",
     "rule": "three checks and their pass conditions registered before running",
     "predictions": [],
-    "commit": "primegaps/prereg.yaml",
-    "before_data": true
+    "commit": "prereg.yaml",
+    "before_data": true,
+    "results": [
+     "results.json"
+    ]
    },
    "outcome": {
     "verdict": "confirmed",
@@ -395,6 +406,8 @@
     "P4"
    ],
    "gap_ids": [],
+   "kind": "rerun",
+   "by": "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)",
    "audience": "briefing"
   },
   {
@@ -418,8 +431,11 @@
     "question": "Does the conditional Lean development rebuild and pass the authors' checkers when run independently, and can the numerical certificate be rerun without the authors' custom library?",
     "rule": "pre-registered in primegaps/prereg_cycle6.yaml: C4 to C7 before any run; C8 and C9 added by amendment A1 after C6 and before they ran",
     "predictions": [],
-    "commit": "primegaps/prereg_cycle6.yaml",
-    "before_data": true
+    "commit": "prereg_cycle6.yaml",
+    "before_data": true,
+    "results": [
+     "cycle6/results_cycle6.json"
+    ]
    },
    "outcome": {
     "verdict": "confirmed",
@@ -445,6 +461,8 @@
    "gap_ids": [
     "G1"
    ],
+   "kind": "rerun",
+   "by": "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)",
    "audience": "briefing"
   },
   {
@@ -468,8 +486,12 @@
     "question": "Can the open semantic question, whether the formal statements say what the paper claims, be made cheaper for a human reviewer?",
     "rule": "pre-registered in primegaps/prereg_cycle7.yaml before the main paper was read: a definitional trace with the agent's renderings, every number table compared mechanically, discrepancies recorded whether harmless or not; standing unchanged by construction",
     "predictions": [],
-    "commit": "primegaps/prereg_cycle7.yaml",
-    "before_data": true
+    "commit": "prereg_cycle7.yaml",
+    "before_data": true,
+    "results": [
+     "cycle7/table_compare.json",
+     "trace/DEFINITIONAL-TRACE.md"
+    ]
    },
    "outcome": {
     "verdict": "confirmed",
@@ -490,6 +512,8 @@
    "gap_ids": [
     "G2"
    ],
+   "kind": "trace",
+   "by": "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)",
    "audience": "briefing"
   }
  ],
@@ -1180,7 +1204,7 @@
    "closes_with": [
     {
      "what": "a number theorist reads the definitional trace against the formal file and the paper and signs its checklist",
-     "kind": "research",
+     "kind": "read",
      "external": true,
      "who_could_act": "an independent number theorist"
     }
@@ -1188,6 +1212,8 @@
    "ask": {
     "spoken": "A number theorist should read the definitional trace against the formal file and the paper, and sign or refuse its checklist. The readings in it are the system's; the signature has to be a person's."
    },
+   "expected_signal": "two read cycles, by named people who are not authors of the claim, each signing every item of the trace's checklist; one refusal reopens it",
+   "resolution_by": "none registered",
    "audience": "briefing"
   },
   {
@@ -1230,6 +1256,8 @@
    "ask": {
     "spoken": "Either formalize the two classical bounds or record that the field accepts them as standard."
    },
+   "expected_signal": "either a Lean formalization of the two bounds accepted into the development, or a cited statement from the field that they are standard",
+   "resolution_by": "none registered",
    "audience": "briefing"
   },
   {
@@ -1272,6 +1300,8 @@
    "ask": {
     "spoken": "The written proof needs an independent expert read or a referee report."
    },
+   "expected_signal": "a referee report, or a public account by an independent expert of having read the proof through",
+   "resolution_by": "none registered",
    "audience": "briefing"
   }
  ],

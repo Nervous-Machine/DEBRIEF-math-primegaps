@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: "DEBRIEF-math-primegaps: independent rerun, checks and definitional trace of openai/PrimeGaps186 (lim inf prime gaps <= 186)"
+message: "Cite this record by version. Contributors of record are listed as authors; each is credited for the cycles they contributed."
+type: dataset
+version: 0.1.0
+date-released: 2026-11-08
+license: CC-BY-4.0
+repository-code: https://github.com/Nervous-Machine/DEBRIEF-math-primegaps
+authors:
+  - family-names: Bennett
+    given-names: Heidi
+    affiliation: Nervous Machine
+    # cycles 5, 6, 7 (checks C1-C3, independent rerun, definitional trace), with Claude Code as the tool
