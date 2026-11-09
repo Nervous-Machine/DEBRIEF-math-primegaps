@@ -1,6 +1,6 @@
 # An independent rerun of openai/PrimeGaps186
 
-_This repository was `primegaps-186-rerun` until 8 November 2026. It is now the first mission of the DEBRIEF register, named `DEBRIEF-domain-regime`; the protocol repository (schema, rules, tools) is being prepared and will be linked here when public. The old URL redirects._
+_This repository was `primegaps-186-rerun` until 8 November 2026. It is now the first mission of the DEBRIEF register, whose repositories are named `DEBRIEF-<domain>-<regime>`; the protocol repository (schema, rules, tools) is https://github.com/Nervous-Machine/DEBRIEF. The old URL redirects._
 
 **Status, 7 November 2026.** OpenAI's conditional Lean development for the bound "infinitely many pairs of primes are at
 most 186 apart" rebuilds from the pinned sources, passes its own checkers (Comparator, the Nanoda kernel and Lean's
@@ -62,7 +62,7 @@ them, and under our rules they never raise an input's standing.
 - C6: install `python-flint==0.9.0` from PyPI and run the certificate's own startup regression,
   `check_flint_signed_fft`, reproduced verbatim. OpenAI's README says the certificate needs a "custom FLINT 3.6.0
   build" with corrected signed convolution that is not bundled. We predicted the stock wheel would fail. It did.
-- Amendment A1, written after C6 and before anything else ran: OpenAI's numerics paper identifies the custom build.
+- Amendment A1, written after C6, while the C4 build was running and before C5, C8 or C9 started: OpenAI's numerics paper identifies the custom build.
   It is FLINT 3.6.0 plus upstream commit `7ad753d51c82fdec115cb179b41d0e581f1cb0ec`, pull request 2790, "Fix fft
   conversion bug causing rare incorrect results in fmpz_poly_mul_SS", merged to FLINT main on 11 August 2026 and in
   no FLINT release (latest release v3.6.0, 29 June 2026). So the certificate is reproducible from public sources.
@@ -178,9 +178,11 @@ dated cycle in `ledger/primegaps.json`, under the contributor's own name, and co
 issue form; a workflow turns it into a `read` cycle verbatim. Reruns and new claims have their own forms. Rules and
 templates: https://github.com/Nervous-Machine/DEBRIEF/blob/main/CONTRIBUTING.md.
 
-One note on the record itself: the pre-registration for cycle 5 (`prereg.yaml`, checks C1 to C3) was registered
-before the checks ran but has no `.sha256` sidecar, and it entered git in the same commit as its results, so the
-protocol's ordering check cannot confirm it from history. Cycles 6 and 7 have sidecars and check as unchanged.
+One note on the record itself: each of our three pre-registrations (cycles 5, 6 and 7) was written before its
+checks ran, but each entered git in the same commit as its results, so the protocol's ordering check cannot confirm
+the order from history. It rests on our word. Cycle 5 (`prereg.yaml`, checks C1 to C3) also has no `.sha256`
+sidecar. Cycles 6 and 7 have sidecars, which show the files are unchanged since registration, not when they were
+written. A contributed rerun whose pre-registration is committed before it runs does not have this weakness.
 
 ## Layout
 
@@ -195,6 +197,7 @@ SCORECARD.md            the human-readable scorecard, as briefed on 7 November 2
 prereg.yaml             pre-registration for cycles 0–5 and checks C1–C3, with amendment A1
 ASKS.md                 open items and the contribution kind that closes each (generated)
 cycles/                 contributed cycles, one file each, merged by the validation workflow
+.github/                the Semantic read and Rerun report issue forms, and the workflow that calls the protocol's
 CITATION.cff            how to cite this record; contributors of record
 prereg_cycle6.yaml      pre-registration for the rerun, C4–C7, with amendment A1 adding C8–C9
 prereg_cycle6.sha256    hashes of that file before and after the amendment

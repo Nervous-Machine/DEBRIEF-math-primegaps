@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Which form?
+    url: https://github.com/Nervous-Machine/DEBRIEF/blob/main/CONTRIBUTING.md
+    about: The contribution kinds and their rules.
+  - name: New claim
+    url: https://github.com/Nervous-Machine/DEBRIEF/issues/new/choose
+    about: A new claim for the register is proposed in the protocol repository, not here.
