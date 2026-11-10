@@ -87,7 +87,8 @@ them, and under our rules they never raise an input's standing.
 
 This rerun is the sixth cycle of a scorecard that Nervous Machine keeps with a tool called DEBRIEF. The scorecard
 itself is `ledger/primegaps.json`, its schema is `ledger/SCHEMA.md`, and a readable rendering is `SCORECARD.md`.
-The rules that produced it:
+A five-minute narrated walkthrough of the scorecard as it stood after cycle 7 (8 November 2026) is at
+https://youtu.be/xHyITRkDeFU; it is a scripted demo, and the ledger is the record. The rules that produced it:
 
 **Replay with no look-ahead.** The public record is replayed as dated cycles. Each cycle sees only what was public
 by its date, dated by first public posting. Cycle 0 is Polymath 8 (246, 2014). Cycle 1 is the two independent 240s:
