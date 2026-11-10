@@ -2,7 +2,7 @@
 
 Each open gap below is a place a contribution can land. A contribution is one cycle in this repository's ledger, under your name. How to contribute, and the templates: https://github.com/Nervous-Machine/DEBRIEF/blob/main/CONTRIBUTING.md
 
-## 2. Do the formal statements say what a mathematician means?
+## 2. Do the formal statements say what a mathematician means? (ledger id G2)
 
 The checkers confirm the proof reaches its stated goals. Whether those goals say exactly what the paper claims is a human judgment nobody has publicly made. Since November eighth there is a reading guide that traces each statement to its definitions; it is an aid, not a review.
 
@@ -12,7 +12,7 @@ Status: proposed.
 
 Signal expected: two read cycles, by named people who are not authors of the claim, each signing every item of the trace's checklist; one refusal reopens it. Resolution by: none registered.
 
-## 3. The two classical exponential-sum bounds are assumed in Lean
+## 3. The two classical exponential-sum bounds are assumed in Lean (ledger id G3)
 
 Both are standard results and held in spot checks, but the formal proof takes them on trust.
 
@@ -22,7 +22,7 @@ Status: proposed.
 
 Signal expected: either a Lean formalization of the two bounds accepted into the development, or a cited statement from the field that they are standard. Resolution by: none registered.
 
-## 4. No independent review of the written proof
+## 4. No independent review of the written proof (ledger id G4)
 
 The paper has not been refereed, and no independent expert has reported reading it through.
 
