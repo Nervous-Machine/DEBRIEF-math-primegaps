@@ -41,14 +41,17 @@ body:
     id: checklist
     attributes:
       label: Checklist
-      description: "One line per item, in the form `A1: signed` or `A1: refused — reason`. Use the item ids from Part E of the trace."
+      description: "One line per item, in the form `A1: signed` or `A1: refused — reason`. Use the item ids from Part E of the trace; a read counts as a signature only if every item there is signed."
       placeholder: |
         A1: signed
         A2: signed
         A3: refused — the rendering says "infinitely many n" but the Lean statement quantifies over ...
         B1: signed
         B2: signed
-        D: signed
+        B (judgment): signed
+        C1: signed
+        C2: signed
+        C3: signed
     validations:
       required: true
   - type: textarea
