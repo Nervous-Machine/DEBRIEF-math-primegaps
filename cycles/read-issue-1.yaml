@@ -1,0 +1,19 @@
+# read cycle from issue #1; answers copied verbatim
+kind: read
+cycle: "read-1"
+dated: "2026-11-10"
+by: "Heidi Bennett"
+github: "heidiEC"
+not_an_author_of_the_claim: true
+preregistered:
+  commit: "trace/DEFINITIONAL-TRACE.md@xxxx"
+  question: "Do the formal statements say what the paper claims, as rendered in the trace?"
+  rule: "Each checklist item is signed or refused by name. A refusal names the item and the reason."
+  before_data: true
+checklist:
+outcome:
+  verdict: signed
+  misses: []
+spoken: "Heidi Bennett read the definitional trace and signed every item of its checklist."
+finding_ids: []
+gap_ids: []  # maintainer fills in the semantic gap id at merge
