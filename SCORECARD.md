@@ -1,81 +1,55 @@
-# DEBRIEF: the claim that primes come within 186 of each other infinitely often (sample, 2026-11-07)
+# The claim that primes come within 186 of each other infinitely often
 
-Ledger: `ledger/missions/primegaps.json` (built by `ledger/build_ledger.py`). Pre-registration: `primegaps/prereg.yaml`,
-written before any check ran; amendment A1 added after the checks (Axiom wording, provenance, C3 note; verdicts unchanged).
-Lean source pinned: openai/PrimeGaps186 commit 61340d0 (2 Sep 2026), `Challenge.lean` sha256 b99a403b…, verbatim copy in
-`primegaps/source/`. Cycle 6 (independent rerun, same day): `primegaps/prereg_cycle6.yaml` written first, results in
-`primegaps/cycle6/results_cycle6.json`, logs alongside. Cycle 7 (2026-11-08): `primegaps/prereg_cycle7.yaml`, trace in
-`primegaps/trace/`, machine checks in `primegaps/cycle7/`. Checks: `primegaps/checks.py` → `primegaps/results.json`. The agent's knowledge base:
-`elevenlabs/knowledge_base_primegaps.generated.md`. Nervous Machine keeps score of the checks; it does not check the
-mathematics line by line.
+In early September, OpenAI posted a proof credited to its model GPT 6 Astra that infinitely many pairs of primes are at most one hundred and eighty six apart, beating the 2014 record of two hundred and forty six. The same week, Hanxin Zhang and Julia Stadlmann each reached two hundred and forty and Axiom Math announced two hundred and twelve by related routes, so the approach is credible. The logic of OpenAI's proof is fully machine-checked in Lean, but it rests on three inputs that were taken as given: two classical bounds on exponential sums, and one hundred and fifty two numerical bounds computed by a separate program. Nervous Machine checked what can be checked directly. The forty-number list is correct, and the two classical bounds hold with room to spare on every small prime tested. Nervous Machine then reran OpenAI's own checks: the Lean build, the Comparator match and both kernel checks all passed, and the numerical certificate ran to completion and passed on a publicly buildable library. What is still open is human: no number theorist has publicly confirmed the formal statements say what the paper claims, and the written proof has not been refereed. My read: conditionally supported, with the computation independently reproduced; not yet settled.
 
-## 1. In one minute
+_Rendered from the briefing record. Items marked internal in the ledger (how the framework works, the state of the record) stay in `ledger.json` and are not shown here._
 
-- **The claim.** OpenAI (credited to GPT‑6 Astra; paper dated 30 Aug 2026, public 3 Sep) says infinitely many prime
-  pairs are at most **186** apart, beating Polymath 8b's **246** (2014).
-- **The same week**, Hanxin Zhang (28 Aug, discovery credited to GPT 5.6 Sol) and Julia Stadlmann (31 Aug, no AI) each
-  reached **240**, and Axiom Math announced **212** (3 Sep, nine authors). The approach is credible.
-- **The logic is machine-checked in Lean,** but it rests on **three inputs taken on trust**: two classical exponential‑sum
-  bounds, and 152 numerical bounds computed by a separate program.
-- **What we checked directly holds up.** The 40-number list is correct, and the two classical bounds hold with room to
-  spare on small primes.
-- **Then we reran OpenAI's own checks.** The Lean build passed with no warnings (9.5 min, 28 GB). Comparator matched
-  the three statements; Nanoda and Lean's kernel accepted them, on exactly the six permitted axioms. The numerical
-  certificate ran to completion and passed (1 h 04 min, 4 workers) once FLINT had the one public, unreleased fix it needs.
-  Per Tao's page and MathWorld, no one had reported a rerun before.
-- **Open:** a number theorist has not publicly confirmed the formal goal statements say what the paper claims, and
-  the paper hasn't been refereed.
-- **Read: conditionally supported, with the computation independently reproduced. Not yet settled; what remains is human.**
+Record quality: reconstructed. Replayed from the public record, dated by first public posting; Nervous Machine's own checks were registered before they ran.
 
-## 2. How it was solved, in plain terms
+**Standing.** Certified 5. Accepted 5. Refuted 0. Open gaps 3. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
 
-The method gives each shifted copy of a list of numbers a weight, so copies likely to hold two primes count more (the
-multidimensional Selberg sieve of Maynard and Tao). The new step is a set of conditions on how the weights' divisors
-factor ("triply densely divisible"). These conditions let the weights reach further than the 2014 method allowed, using
-Polymath 8a's and Stadlmann's estimates of how primes spread across remainders. A large numerical optimization then shows
-forty numbers are enough (DHL[40,2]), and a 40-number list spanning 186 finishes the proof.
+## Findings
 
-## 3. Standing, step by step
+| id | kind | standing | basis | cycles |
+|---|---|---|---|---|
+| P1 | learned | **certified** | checked by direct computation under a rule written down first, on the tuple read from the pinned Lean source | 5 |
+| P2 | learned | **certified** | formally checked by the authors' toolchain, and rerun by Nervous Machine on November seventh: the Lean build, Comparator, the Nanoda kernel and Lean's kernel all passed, with exactly the six permitted axioms | 3, 6 |
+| P3 | learned | **accepted** | published, refereed results | 0, 3 |
+| P4 | learned | **accepted** | standard results in the literature, supported by spot checks on small primes | 3, 5 |
+| P5 | discovery | **accepted** | three independent groups, none refereed; Axiom's Lean certificate is described in its draft and is not public | 1, 2 |
+| P7 | correction | **accepted** | dated public deposits | 1 |
+| P6 | correction | **accepted** | the repository lists them | 3 |
+| P10 | learned | **certified** | deterministic text comparison registered before it ran | 7 |
+| P8 | correction | **certified** | deterministic checks registered before they ran | 6 |
+| P9 | learned | **certified** | independent rerun of the certificate under a rule written first | 6 |
 
-| step | standing | basis |
-|---|---|---|
-| The 40-number list spans 186 and is admissible | **certified** | direct computation on the tuple read from the pinned Lean source, rule written first (C1) |
-| Logic from the three inputs to DHL[40,2] and the 186 bound | **certified** | Lean kernel + Nanoda + Comparator, run by the authors and rerun by Nervous Machine (C4, C5); exactly six axioms |
-| Polymath 8a estimates, Maynard sieve | **accepted** | published, refereed |
-| Hyper-Kloosterman bound (input 1, Deligne) | **accepted** | literature; max seen 2.35 vs limit 3 for all primes ≤ 97 (C2) |
-| Kloosterman correlation bound (input 2, Fouvry–Kowalski–Michel) | **accepted** | literature; never above 46% of the limit for primes ≤ 61 (C3) |
-| 152 numerical integral and cap bounds (input 3) | **certified** | certificate rerun by Nervous Machine on FLINT 3.6.0 + fix 7ad753d: passed, margin 2.3e-5 > required (C9) |
-| The formal goals say what the paper claims | **open** | Comparator matches the proof to the goals, not the goals to the mathematics; the repo's own formalization.yaml says "self-assessed, no independent human semantic review" |
-| Independent review of the written proof | **open** | none reported through 2026-11-07 |
-| Route plausibility (Zhang 240, Stadlmann 240, Axiom 212) | **accepted** | three independent groups, none refereed; Axiom's Lean certificate described in its draft, not public |
+## Cycles, in order
 
-**Refuted: nothing.** Three corrections: some descriptions count six assumptions, but three are Lean's standard logic
-rules, so the claim rests on three; an earlier draft of this briefing called Stadlmann's 240 the first improvement in a
-decade, when Zhang's 240 was deposited three days earlier; and this briefing said the certificate needed a library build
-OpenAI had not published, when the missing piece is a public upstream FLINT fix (PR 2790) that is in no release.
+| cycle | dated | by | kind | written first | verdict |
+|---|---|---|---|---|---|
+| 0 | 2014-2015 |  | replay | no | learned |
+| 1 | 2026-08-28 to 2026-08-31 |  | replay | no | classified |
+| 2 | 2026-09-03 |  | replay | no | classified |
+| 3 | 2026-09-03 |  | replay | no | admitted |
+| 4 | 2026-09-07 to 2026-11-05 |  | replay | no | unavailable |
+| 5 | 2026-11-07 | Nervous Machine (Heidi Bennett; Claude Code as the operating agent) | rerun | yes | confirmed |
+| 6 | 2026-11-07 | Nervous Machine (Heidi Bennett; Claude Code as the operating agent) | rerun | yes | confirmed |
+| 7 | 2026-11-08 | Nervous Machine (Heidi Bennett; Claude Code as the operating agent) | trace | yes | confirmed |
+| rerun-4 | 2026-11-14 | Fredrik Prüzelius (with Claude Code) | rerun | no | confirmed |
 
-## 4. Replay, no look-ahead
+## Gaps, in the order that would settle things fastest
 
-| cycle | date | what was public | verdict |
-|---|---|---|---|
-| 0 | 2014–15 | Polymath 8a/8b (246), Maynard sieve; 8b names the dense-divisibility route as hard at k ≈ 50 | baseline |
-| 1 | 2026-08-28 → 08-31 | Zhang 240 (Zenodo, AI-discovered, exact certificate); Stadlmann 240 (arXiv, no AI); independent | route credible |
-| 2 | 2026-09-03 | Axiom Math 212, 45-tuple: draft says its prover produced a Lean certificate conditional on five analytic estimates and a variational certificate; not published | route credible |
-| 3 | 2026-09-03 | OpenAI 186: paper, conditional Lean development, certificate program | admitted, conditional; four gaps opened |
-| 4 | 2026-09-07 → 11-05 | Tao's optimization-problems page ("no bound was independently verified"), MathWorld, Science News, repo activity | no independent verification reported |
-| 5 | 2026-11-07 | Nervous Machine checks C1–C3 (registered first) | all three pass |
-| 6 | 2026-11-07 | Independent rerun, registered first (C4–C9): Lean build, Comparator + Nanoda + kernel, axiom print, stock FLINT fails regression (predicted), FLINT + fix passes, certificate passes | all predictions held |
-| 7 | 2026-11-08 | Definitional trace of `Challenge.lean` for human review, registered first (`prereg_cycle7.yaml`): each goal and axiom traced to Mathlib with a rendering and the paper location; every number table compared mechanically with the numerics paper | all tables match; one labeling discrepancy in formalization.yaml; no content discrepancy seen by the agent; G2 stays open |
+| priority | gap | status | closes with | who could act | signal expected | resolution by |
+|---|---|---|---|---|---|---|
+| 1 | The one hundred and fifty two numerical integral bounds | resolved learned | an independent rerun of the numerical certificate | any group: FLINT 3.6.0 plus public upstream fix 7ad753d, python-flint 0.9.0 built from source |  |  |
+| 2 | Do the formal statements say what a mathematician means? | proposed | a number theorist reads the definitional trace against the formal file and the paper and signs its checklist | an independent number theorist | two read cycles, by named people who are not authors of the claim, each signing every item of the trace's checklist; one refusal reopens it | none registered |
+| 3 | The two classical exponential-sum bounds are assumed in Lean | proposed | formalize the two bounds in Lean, or accept them as standard literature | the Lean community | either a Lean formalization of the two bounds accepted into the development, or a cited statement from the field that they are standard | none registered |
+| 4 | No independent review of the written proof | proposed | referee or independent expert review of the paper | a journal or independent experts | a referee report, or a public account by an independent expert of having read the proof through | none registered |
 
-## 5. What would settle it, in order
+## Corrections, retractions, ruled out
 
-1. A number theorist reads the three goal statements in `Challenge.lean` (OpenAI's own metadata: "self-assessed, no
-   independent human semantic review"). Since 2026-11-08 there is a definitional trace to read against,
-   `primegaps/trace/DEFINITIONAL-TRACE.md`: Lean text, dependencies down to Mathlib, a rendering, the paper location,
-   and a sign-off checklist. The renderings are the agent's; the signature has to be a person's.
-2. A referee report or an independent expert read of the paper.
-3. Formalize the two classical bounds in Lean, or record that the field accepts them as standard.
-4. Done 2026-11-07: independent rerun of the Lean build, Comparator and `prime_gap_186_certificate.py`. A second party
-   repeating it would strengthen the record; the recipe is FLINT 3.6.0 + commit 7ad753d, python-flint 0.9.0 from source.
+- **P7** (correction): An earlier draft of this briefing called Stadlmann's two hundred and forty the first improvement in more than a decade. Hanxin Zhang's two hundred and forty was deposited three days earlier, on August twenty eighth, with the discovery credited to an AI model. They are independent proofs of the same bound.
+- **P6** (correction): Some descriptions say the proof rests on six assumptions. Three of those are the standard rules of Lean's logic that every Lean proof uses. The claim rests on three.
+- **P8** (correction): Earlier this briefing said the numerical certificate needed a library build OpenAI had not published. The missing piece is public: one upstream fix to the FLINT library, merged in August and in no release yet. The stock library fails the certificate's own startup test; FLINT three point six with that one fix passes it.
 
-"If you think of any other questions, I'm just a call or text away."
+_Generated by DEBRIEF tools/render.py from ledger.json; protocol 0.1.0._
