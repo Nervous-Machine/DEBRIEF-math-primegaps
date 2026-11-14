@@ -12,16 +12,16 @@ Record quality: reconstructed. Replayed from the public record, dated by first p
 
 | id | kind | standing | basis | cycles |
 |---|---|---|---|---|
-| P1 | learned | **certified** | checked by direct computation under a rule written down first, on the tuple read from the pinned Lean source | 5 |
-| P2 | learned | **certified** | formally checked by the authors' toolchain, and rerun by Nervous Machine on November seventh: the Lean build, Comparator, the Nanoda kernel and Lean's kernel all passed, with exactly the six permitted axioms | 3, 6 |
+| P1 | learned | **certified** | checked by direct computation under a rule written down first, on the tuple read from the pinned Lean source | 5, rerun-4 |
+| P2 | learned | **certified** | formally checked by the authors' toolchain, and rerun by Nervous Machine on November seventh: the Lean build, Comparator, the Nanoda kernel and Lean's kernel all passed, with exactly the six permitted axioms | 3, 6, rerun-4 |
 | P3 | learned | **accepted** | published, refereed results | 0, 3 |
 | P4 | learned | **accepted** | standard results in the literature, supported by spot checks on small primes | 3, 5 |
 | P5 | discovery | **accepted** | three independent groups, none refereed; Axiom's Lean certificate is described in its draft and is not public | 1, 2 |
 | P7 | correction | **accepted** | dated public deposits | 1 |
 | P6 | correction | **accepted** | the repository lists them | 3 |
 | P10 | learned | **certified** | deterministic text comparison registered before it ran | 7 |
-| P8 | correction | **certified** | deterministic checks registered before they ran | 6 |
-| P9 | learned | **certified** | independent rerun of the certificate under a rule written first | 6 |
+| P8 | correction | **certified** | deterministic checks registered before they ran | 6, rerun-4 |
+| P9 | learned | **certified** | independent rerun of the certificate under a rule written first | 6, rerun-4 |
 
 ## Cycles, in order
 

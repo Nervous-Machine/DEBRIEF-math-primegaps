@@ -11,3 +11,6 @@ authors:
     given-names: Heidi
     affiliation: Nervous Machine
     # cycles 5, 6, 7 (checks C1-C3, independent rerun, definitional trace), with Claude Code as the tool
+  - family-names: Prüzelius
+    given-names: Fredrik
+    # cycle rerun-4 (2026-11-14): the second independent rerun of the build, both kernels and the numerical certificate, with Claude Code as the tool; GitHub @pruzze

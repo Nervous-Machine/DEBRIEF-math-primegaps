@@ -90,7 +90,7 @@
     ]
    },
    "certainty_statement": {
-    "spoken": "Three steps are certified: the forty-number list by direct check, the Lean deduction by independent rerun, and the numerical bounds by independent rerun. Two inputs are accepted as standard literature with supporting spot checks. Open: whether the formal statements say what the paper claims, and refereeing."
+    "spoken": "Three steps are certified: the forty-number list by direct check, the Lean deduction by two independent reruns, and the numerical bounds by two independent reruns with identical margins. Two inputs are accepted as standard literature with supporting spot checks. Open: whether the formal statements say what the paper claims, and refereeing."
    },
    "sources": [
     {
@@ -695,10 +695,12 @@
      }
     },
     "cycles": [
-     5
+     5,
+     "rerun-4"
     ],
     "confirmed_by": [
-     "computation run by Nervous Machine"
+     "computation run by Nervous Machine",
+     "rerun by Fredrik Prüzelius, 2026-11-14"
     ]
    },
    "standing": {
@@ -781,17 +783,19 @@
     },
     "cycles": [
      3,
-     6
+     6,
+     "rerun-4"
     ],
     "confirmed_by": [
      "OpenAI's own toolchain",
-     "rerun by Nervous Machine, 2026-11-07"
+     "rerun by Nervous Machine, 2026-11-07",
+     "rerun by Fredrik Prüzelius, 2026-11-14"
     ]
    },
    "standing": {
     "status": "certified",
     "basis": "formally checked by the authors' toolchain, and rerun by Nervous Machine on November seventh: the Lean build, Comparator, the Nanoda kernel and Lean's kernel all passed, with exactly the six permitted axioms",
-    "note": "the first independent rerun reported in the public record"
+    "note": "two independent reruns in the public record: Nervous Machine (2026-11-07) and Fredrik Prüzelius (2026-11-14), both with exactly the six permitted axioms"
    },
    "certainty": {
     "earned": true,
@@ -1089,11 +1093,13 @@
      "fixed_regression": "pass"
     },
     "cycles": [
-     6
+     6,
+     "rerun-4"
     ],
     "confirmed_by": [
      "checks C6 and C8 run by Nervous Machine",
-     "OpenAI's numerics paper, references 3, 5 and 6"
+     "OpenAI's numerics paper, references 3, 5 and 6",
+     "checks P6 and P8 rerun by Fredrik Prüzelius, 2026-11-14: stock wheel fails at index 15, fixed library passes"
     ]
    },
    "standing": {
@@ -1134,16 +1140,18 @@
      "receipt_sha256": "88ef5526f7f188159da1060a7494056345c351b75963784d11ada41fbf625cf2"
     },
     "cycles": [
-     6
+     6,
+     "rerun-4"
     ],
     "confirmed_by": [
-     "certificate run by Nervous Machine"
+     "certificate run by Nervous Machine",
+     "certificate run by Fredrik Prüzelius, 2026-11-14; margin identical field for field"
     ]
    },
    "standing": {
     "status": "certified",
     "basis": "independent rerun of the certificate under a rule written first",
-    "note": "one machine, one party; a second independent rerun would strengthen it"
+    "note": "two machines, two parties: Nervous Machine (2026-11-07) and Fredrik Prüzelius (2026-11-14); the final margin is identical in both runs"
    },
    "certainty": {
     "earned": true,
