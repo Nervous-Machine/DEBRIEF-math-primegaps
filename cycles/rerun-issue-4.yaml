@@ -3,12 +3,13 @@ kind: rerun
 cycle: "rerun-4"
 dated: "2026-11-14"
 by: "Fredrik Prüzelius (with Claude Code)"
-github: "LEB-FredrikPruzelius"
+github: "pruzze"
+github_note: "submitted from LEB-FredrikPruzelius; recorded under pruzze at the contributor's request in issue 4, where he wrote from pruzze that the work account was his; both profiles carry the name Fredrik Prüzelius"
 preregistered:
   commit: "none (written before the run but not committed publicly; see Results)"
   question: "Independent rerun of the mission's checks."
   rule: "As registered in the linked pre-registration, if any."
-  before_data: true
+  before_data: false  # the pre-registration was written first but kept locally, not committed publicly; see Results
 environment: "- OrbStack VM on an Apple M5 Pro host (macOS), Ubuntu 24.04, aarch64; nproc 17, 39 GiB visible to the guest (OrbStack limit 36 GiB). Isolated: the run touched nothing outside the VM except the output mount.\n- Lean toolchain leanprover/lean4:v4.34.0-rc2 (from lean-toolchain), elan 4.2.4, uv 0.13.8, Python 3.12.3.\n- FLINT 3.6.0 built from source with upstream fix 7ad753d (PR 2790); python-flint 0.9.0 built from source against it.\n- Source: openai/PrimeGaps186 @ 61340d0b74163003b32756bb16e91d9209a5e330.\n- Our own scripts (run.sh, run_cont.sh), written from REPRODUCE.md; your shell scripts were not reused. Only probe_flint.py is a verbatim copy of the certificate's own regression check."
 outcome:
   verdict: confirmed
