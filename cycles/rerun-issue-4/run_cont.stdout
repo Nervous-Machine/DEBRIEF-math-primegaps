@@ -1,0 +1,4 @@
+[2026-11-13T23:10:22Z] === continuation (deviation D1: installed python3-dev, rebuilt python-flint against existing FLINT 3.6.0+7ad753d)
+[2026-11-13T23:10:28Z] START C8_fixed_flint
+[2026-11-13T23:10:49Z] END C8_fixed_flint rc=0 wall=0:21.37 maxRSS_kB=361268
+[2026-11-13T23:10:49Z] START C9_certificate

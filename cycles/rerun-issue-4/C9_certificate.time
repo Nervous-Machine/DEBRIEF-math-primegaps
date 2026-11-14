@@ -1,0 +1,23 @@
+	Command being timed: "bash -c cd /home/pruzze/work/PrimeGaps186 && unset PYTHONOPTIMIZE && /home/pruzze/work/venv-fixed/bin/python -B prime_gap_186_certificate.py --workers 4 --output /out/prime_gap_186_fresh.json"
+	User time (seconds): 30875.24
+	System time (seconds): 100.07
+	Percent of CPU this job got: 397%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:09:50
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 9303780
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 748
+	Minor (reclaiming a frame) page faults: 10070615
+	Voluntary context switches: 1211659
+	Involuntary context switches: 71671
+	Swaps: 0
+	File system inputs: 1203736
+	File system outputs: 421
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
