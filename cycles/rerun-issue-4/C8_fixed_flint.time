@@ -1,0 +1,23 @@
+	Command being timed: "bash -c ls /home/pruzze/work/flint-360fix/lib/libflint* && cd /home/pruzze/work/flint-360 && git log --oneline -2 && rm -rf /home/pruzze/work/venv-fixed && uv venv -q --python /usr/bin/python3.12 /home/pruzze/work/venv-fixed && PKG_CONFIG_PATH=/home/pruzze/work/flint-360fix/lib/pkgconfig CFLAGS=-I/home/pruzze/work/flint-360fix/include LDFLAGS='-L/home/pruzze/work/flint-360fix/lib -Wl,-rpath,/home/pruzze/work/flint-360fix/lib' uv pip install --python /home/pruzze/work/venv-fixed/bin/python --no-binary python-flint python-flint==0.9.0 numpy==2.2.6 && /home/pruzze/work/venv-fixed/bin/python -c 'import flint; print(flint.__version__, flint.__FLINT_VERSION__)' && /home/pruzze/work/venv-fixed/bin/python /out/probe_flint.py"
+	User time (seconds): 202.90
+	System time (seconds): 7.23
+	Percent of CPU this job got: 983%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.37
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 361268
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 121
+	Minor (reclaiming a frame) page faults: 1198166
+	Voluntary context switches: 2669
+	Involuntary context switches: 5336
+	Swaps: 0
+	File system inputs: 218920
+	File system outputs: 185840
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

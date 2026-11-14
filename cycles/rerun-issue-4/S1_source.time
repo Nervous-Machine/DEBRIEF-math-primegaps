@@ -1,0 +1,23 @@
+	Command being timed: "bash -c cd /home/pruzze/work && git clone -q https://github.com/openai/PrimeGaps186.git && cd PrimeGaps186 && git checkout -q 61340d0b74163003b32756bb16e91d9209a5e330 && git rev-parse HEAD && sha256sum Challenge.lean prime_gap_186_certificate.py"
+	User time (seconds): 0.09
+	System time (seconds): 0.02
+	Percent of CPU this job got: 12%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.91
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 16896
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 4147
+	Voluntary context switches: 356
+	Involuntary context switches: 140
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 26096
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

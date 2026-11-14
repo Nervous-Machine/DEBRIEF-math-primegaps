@@ -1,0 +1,23 @@
+/home/pruzze/work/flint-360fix/lib/libflint.so
+/home/pruzze/work/flint-360fix/lib/libflint.so.24
+/home/pruzze/work/flint-360fix/lib/libflint.so.24.0.0
+d3b117520 Fix fft conversion bug causing rare incorrect results in fmpz_poly_mul_SS
+8d5454b96 Version 3.6.0
+Using Python 3.12.3 environment at: /home/pruzze/work/venv-fixed
+Resolved 2 packages in 1ms
+   Building python-flint==0.9.0
+      Built python-flint==0.9.0
+Prepared 1 package in 21.25s
+Installed 2 packages in 21ms
+ + numpy==2.2.6
+ + python-flint==0.9.0
+0.9.0 3.6.0
+{
+ "check": "C6",
+ "python": "3.12.3",
+ "machine": "aarch64",
+ "system": "Linux",
+ "python_flint": "0.9.0",
+ "flint_version": null,
+ "regression": "pass"
+}

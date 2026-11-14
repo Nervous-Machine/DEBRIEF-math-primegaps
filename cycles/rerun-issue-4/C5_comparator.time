@@ -1,0 +1,23 @@
+	Command being timed: "bash -c cd /home/pruzze/work/PrimeGaps186 && export COMPARATOR_LEAN4EXPORT=$(find .lake/packages/lean4export -type f -name lean4export -perm -u+x | head -1 | xargs realpath) COMPARATOR_LANDRUN=$HOME/go/bin/landrun COMPARATOR_NANODA=/home/pruzze/work/nanoda_lib/target/release/nanoda_bin XDG_RUNTIME_DIR=/run/user/$(id -u) && systemd-run --property=RestrictAddressFamilies=~AF_UNIX --user --pipe --wait -E PATH -E COMPARATOR_LEAN4EXPORT -E COMPARATOR_LANDRUN -E COMPARATOR_NANODA --working-directory $PWD -- lake exe comparator comparator/main.json"
+	User time (seconds): 0.00
+	System time (seconds): 0.01
+	Percent of CPU this job got: 0%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 9:55.76
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 6384
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 45
+	Minor (reclaiming a frame) page faults: 1440
+	Voluntary context switches: 30
+	Involuntary context switches: 8
+	Swaps: 0
+	File system inputs: 32480
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

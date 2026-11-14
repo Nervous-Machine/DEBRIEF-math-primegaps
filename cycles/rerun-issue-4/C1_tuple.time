@@ -1,0 +1,35 @@
+	Command being timed: "bash -c cd /home/pruzze/work/PrimeGaps186 && python3 - <<'PY'
+import re
+src = open('Challenge.lean').read()
+nums = None
+for m in re.finditer(r'[\[{]([0-9,\s]+)[\]}]', src):
+    xs = [int(x) for x in m.group(1).replace('\n',' ').split(',') if x.strip()]
+    if len(xs) == 40: nums = xs; break
+assert nums, 'no 40-element list found'
+primes = [p for p in range(2, 41) if all(p % d for d in range(2, p))]
+adm = all(len({h % p for h in nums}) < p for p in primes)
+print({'n': len(set(nums)), 'diameter': max(nums) - min(nums), 'admissible': adm, 'tuple': nums})
+assert len(set(nums)) == 40 and max(nums) - min(nums) == 186 and adm
+PY"
+	User time (seconds): 0.01
+	System time (seconds): 0.00
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 10184
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 853
+	Voluntary context switches: 3
+	Involuntary context switches: 0
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
