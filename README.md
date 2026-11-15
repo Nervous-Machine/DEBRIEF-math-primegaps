@@ -8,6 +8,8 @@ kernel) on exactly the six permitted axioms, and its numerical certificate runs 
 machine, run by one party independent of the authors. Every check was written down with a prediction before it ran,
 and every prediction held. The logs are in this repository.
 
+This claim is on the public claims board, https://math-board.nervousmachine.com, which shows its stage, who has contributed, and what it needs next.
+
 **What this does not say.** It does not say 186 is a theorem. The Lean development takes three inputs as axioms: two
 classical exponential-sum bounds and 152 numerical bounds. The rerun reproduces the computation behind the third and
 the deduction from all three. Whether the three formal goal statements in `Challenge.lean` say what the paper claims is
