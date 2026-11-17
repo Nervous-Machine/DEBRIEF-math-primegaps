@@ -5,9 +5,12 @@ on:
   pull_request:
   issues:
     types: [opened, edited]
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
 jobs:
   validate:
-    if: github.event_name != 'issues'
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     uses: Nervous-Machine/DEBRIEF/.github/workflows/validate.yml@main
     with:
       ledger: ledger/primegaps.json
@@ -20,3 +23,11 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
+  watch:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    uses: Nervous-Machine/DEBRIEF/.github/workflows/watch.yml@main
+    with:
+      ledger: ledger/primegaps.json
+    permissions:
+      contents: write
+      pull-requests: write
