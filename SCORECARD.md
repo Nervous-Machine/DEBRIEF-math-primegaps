@@ -36,6 +36,7 @@ Record quality: reconstructed. Replayed from the public record, dated by first p
 | 6 | 2026-11-07 | Nervous Machine (Heidi Bennett; Claude Code as the operating agent) | rerun | yes | confirmed |
 | 7 | 2026-11-08 | Nervous Machine (Heidi Bennett; Claude Code as the operating agent) | trace | yes | confirmed |
 | rerun-4 | 2026-11-14 | Fredrik Prüzelius (with Claude Code) | rerun | no | confirmed |
+| external-2026-11-17 | 2026-11-17 | None | replay | no | admitted |
 
 ## Gaps, in the order that would settle things fastest
 

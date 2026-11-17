@@ -569,6 +569,53 @@
     "P9"
    ],
    "gap_ids": []
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "prime-gaps-186-2026-11",
+   "pod": "nm-trust-trial/primegaps",
+   "audience": "briefing",
+   "created_by": "DEBRIEF external-status snapshot",
+   "created_at": "2026-11-17T21:00:00Z",
+   "provenance": {
+    "source": "public pages of the Palomar registry, google-deepmind/formal-conjectures and the erdosproblems.com database, read 2026-11-17"
+   },
+   "cycle": "external-2026-11-17",
+   "dated": "2026-11-17",
+   "kind": "replay",
+   "by": null,
+   "preregistered": {
+    "question": "What do other registries show about this claim today?",
+    "rule": "status read from each registry's public data, pinned by commit or entry id; no new checking",
+    "predictions": [],
+    "commit": null,
+    "before_data": false
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "external": {
+      "palomar": {
+       "status": "none found",
+       "searched": "data.palomar-registry.org/api/v1/results by problem, claimant repository and topic, 2026-11-17"
+      },
+      "formal_conjectures": {
+       "main_statement": "not applicable",
+       "formal_proof_linked": null,
+       "url": null,
+       "commit": "6751c0f043985ac6647db28a45a63afdf21acffe"
+      },
+      "erdosproblems": {
+       "state": "not applicable",
+       "source": null,
+       "commit": null
+      }
+     }
+    }
+   },
+   "spoken": "What other registries showed on 2026-11-17. Palomar: no entry found. DeepMind formal-conjectures: not an Erdős problem file. erdosproblems.com: not applicable. None of these is a named human reading of the statement.",
+   "finding_ids": [],
+   "gap_ids": []
   }
  ],
  "findings": [
