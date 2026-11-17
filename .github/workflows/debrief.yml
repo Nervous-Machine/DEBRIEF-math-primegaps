@@ -31,12 +31,3 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-  review:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    uses: Nervous-Machine/DEBRIEF/.github/workflows/review.yml@main
-    with:
-      ledger: ledger/primegaps.json
-    secrets: inherit
-    permissions:
-      contents: write
-      pull-requests: write
