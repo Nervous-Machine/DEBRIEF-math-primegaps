@@ -1,111 +1,6 @@
-# An independent rerun of openai/PrimeGaps186
+# DEBRIEF-math-primegaps
 
-_This repository was `primegaps-186-rerun` until 8 November 2026. It is now the first mission of the DEBRIEF register, whose repositories are named `DEBRIEF-<domain>-<regime>`; the protocol repository (schema, rules, tools) is https://github.com/Nervous-Machine/DEBRIEF. The old URL redirects._
-
-**Status, 7 November 2026.** OpenAI's conditional Lean development for the bound "infinitely many pairs of primes are at
-most 186 apart" rebuilds from the pinned sources, passes its own checkers (Comparator, the Nanoda kernel and Lean's
-kernel) on exactly the six permitted axioms, and its numerical certificate runs to completion and passes, on one
-machine, run by one party independent of the authors. Every check was written down with a prediction before it ran,
-and every prediction held. The logs are in this repository.
-
-This claim is on the public claims board, https://math-board.nervousmachine.com, which shows its stage, who has contributed, and what it needs next.
-
-**What this does not say.** It does not say 186 is a theorem. The Lean development takes three inputs as axioms: two
-classical exponential-sum bounds and 152 numerical bounds. The rerun reproduces the computation behind the third and
-the deduction from all three. Whether the three formal goal statements in `Challenge.lean` say what the paper claims is
-a human judgment that, by the repository's own metadata, nobody independent has made ("self-assessed", "No independent
-human semantic review"). The paper has not been refereed. Our read: **conditionally supported, with the computation
-independently reproduced; not yet settled.**
-
-**What we are asking for** is at the end: a second rerun on different hardware, and a number theorist's reading of
-three Lean statements. The second is worth more than the first.
-
-## Results at a glance
-
-| check | what | result | wall | peak memory |
-|---|---|---|---|---|
-| C1 | the 40-number list spans 186 and is admissible | pass | seconds | |
-| C2 | normalized hyper-Kloosterman bound, all nonzero c, primes ≤ 97 | pass, max 2.351 against 3 | seconds | |
-| C3 | Kloosterman correlation bound, all nonzero A, B, primes ≤ 61 | pass, never above 0.458 of the limit | seconds | |
-| C4 | `lake exe cache get && lake build PrimeGaps186`, pinned toolchain | exit 0, 0 error lines, 0 warning lines | 9:32.68 | 28.5 GB |
-| C5 | `lake exe comparator comparator/main.json` in the README's systemd sandbox | 3 of 3 statements matched; Nanoda accepts; Lean kernel accepts | 6:38 | 8 GB |
-| C5 | `#print axioms` on the three theorems | exactly `kloosterman3_bound`, `kloosterman2_correlation_bound`, `physical_integral_bounds`, `propext`, `Quot.sound`, `Classical.choice` | | |
-| C6 | certificate's startup regression on the stock python-flint 0.9.0 wheel | fails at coefficient 15, as predicted | seconds | |
-| C8 | same regression on FLINT 3.6.0 + upstream commit 7ad753d, python-flint built from source | pass | | |
-| C9 | `prime_gap_186_certificate.py --workers 4` on that build | receipt `passed: true`, 97 components; lower margin 2.336e-5 against required 2e-5 | 1:03:48 | 9.7 GB |
-
-Machine: a Linux virtual machine (Ubuntu, kernel 7.0, aarch64, 20 cores, 98 GB) on an Apple-silicon host. Nothing
-from the repository ran on the host. Full numbers: `cycle6/results_cycle6.json`.
-
-## What was run, in order
-
-**The source.** `github.com/openai/PrimeGaps186` at commit `61340d0b74163003b32756bb16e91d9209a5e330` (2 September
-2026, the repository's only commit). `Challenge.lean` at that commit has sha256
-`b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0`; a verbatim copy is in `source/` and every script
-that reads the tuple or the axiom statements checks that hash first.
-
-**Checks we wrote ourselves (C1–C3, `prereg.yaml`, `checks.py`).** The 40-element tuple is read from the pinned
-`Challenge.lean`. C1 confirms 40 distinct entries, diameter 186, and that for every prime p ≤ 40 the residues mod p
-miss at least one class. C2 computes the normalized rank-3 hyper-Kloosterman sum exactly as the Lean file defines it
-and confirms the norm is at most 3 for every nonzero c and every prime up to 97. C3 computes the shifted rank-2
-correlation exactly as the Lean file defines it and confirms it is at most 8·p·√p for every nonzero A, B and every
-prime up to 61. C2 and C3 are corroboration on small primes. They support the two literature inputs; they do not prove
-them, and under our rules they never raise an input's standing.
-
-**The authors' own checks, rerun (C4–C9, `prereg_cycle6.yaml`, `cycle6/`).**
-
-- C4: install the pinned toolchain through elan (`leanprover/lean4:v4.34.0-rc2`), fetch the Mathlib cache, build.
-  The README claims a warning-free build; it was.
-- C5: build `lean4export` and `comparator` from the repository's own lake dependencies, build `landrun` and
-  `nanoda_bin` from their upstream sources (commits recorded), and run Comparator inside the systemd wrapper the
-  README recommends, with `--pipe --wait` in place of `--pty` because there is no terminal. Comparator exports the
-  three theorems, replays them through Nanoda and through Lean's kernel, and matches each statement to
-  `Challenge.lean`. Then `#print axioms` on each theorem.
-- C6: install `python-flint==0.9.0` from PyPI and run the certificate's own startup regression,
-  `check_flint_signed_fft`, reproduced verbatim. OpenAI's README says the certificate needs a "custom FLINT 3.6.0
-  build" with corrected signed convolution that is not bundled. We predicted the stock wheel would fail. It did.
-- Amendment A1, written after C6, while the C4 build was running and before C5, C8 or C9 started: OpenAI's numerics paper identifies the custom build.
-  It is FLINT 3.6.0 plus upstream commit `7ad753d51c82fdec115cb179b41d0e581f1cb0ec`, pull request 2790, "Fix fft
-  conversion bug causing rare incorrect results in fmpz_poly_mul_SS", merged to FLINT main on 11 August 2026 and in
-  no FLINT release (latest release v3.6.0, 29 June 2026). So the certificate is reproducible from public sources.
-  A1 added C8 and C9 with predictions.
-- C8: clone FLINT, check out v3.6.0, cherry-pick 7ad753d (applies cleanly), build, build python-flint 0.9.0 from
-  source against it, run the same regression. Pass.
-- C9: run `prime_gap_186_certificate.py` (sha256 `7f71bdef…`) on that build. The receipt is
-  `cycle6/prime_gap_186_fresh.json`.
-
-## Deviations, recorded against ourselves
-
-- The pre-registration said `--workers 20`. The script accepts only 1 or 4. We reran with 4. The failed launch is
-  `cycle6/C9.attempt1.*`.
-- The first FLINT build fell back to FLINT main (3.7.0-dev) because git had no committer identity for the
-  cherry-pick, and python-flint's build gate rejects anything at or above 3.7. That attempt is `cycle6/C8.log`; the
-  one that counts is `cycle6/C8b.log`.
-- C3 as run skips p = 2, where the sum is empty and the bound holds trivially. The rule said primes ≤ 61.
-- The VM user's home path in the logs was replaced with `/home/runner` before publication, by string substitution.
-  Nothing else in the logs was edited (`cycle6/NOTE-paths.md`).
-
-## How the ledger was built
-
-This rerun is the sixth cycle of a scorecard that Nervous Machine keeps with a tool called DEBRIEF. The scorecard
-itself is `ledger/primegaps.json`, its schema is `ledger/SCHEMA.md`, and a readable rendering is `SCORECARD.md`.
-A five-minute narrated walkthrough of the scorecard as it stood after cycle 7 (8 November 2026) is at
-https://youtu.be/xHyITRkDeFU; it is a scripted demo, and the ledger is the record. The rules that produced it:
-
-**Replay with no look-ahead.** The public record is replayed as dated cycles. Each cycle sees only what was public
-by its date, dated by first public posting. Cycle 0 is Polymath 8 (246, 2014). Cycle 1 is the two independent 240s:
-Hanxin Zhang's (Zenodo, 28 August, discovery credited to an AI model, with an exact-arithmetic certificate) and
-Julia Stadlmann's (arXiv, 31 August, no AI). Cycle 2 is Axiom Math's 212 (3 September; its draft describes a Lean
-certificate that has not been published). Cycle 3 is OpenAI's 186. Cycle 4 is the public record of review through
-5 November: Terence Tao's optimization-problems page ("no bound was independently verified"), MathWorld's table
-("conditional Lean proof, no independent verification reported"), Science News, and the repository's activity (one
-commit, no issues, no pull requests). Cycles 5 and 6 are ours.
-
-**The proof as a graph of steps.** Before any check ran, the argument was split into nine steps (S1–S9 in
-`prereg.yaml`): the tuple, the Polymath 8a estimates, Stadlmann's bilinear estimate as adapted, the new factorization
-conditions, the sieve evaluation, the two Kloosterman inputs, the 152 numerical bounds, and the semantic question of
-whether `Challenge.lean` states the claim as a mathematician would. Each step was assigned how it could be checked:
-computation, literature, formal-conditional, rerun-of-certificate, or human-semantic-review.
+A DEBRIEF mission record (protocol https://github.com/Nervous-Machine/DEBRIEF) for **the claim that primes come within 186 of each other infinitely often**, posted by OpenAI in September 2026 as a conditional Lean development, a numerical certificate and a paper.
 
 <!-- standing:begin -->
 **Standing, 17 Nov 2026.** Stage: Reading guide written. Needs next: Do the formal statements say what a mathematician means? ([what would close it](ASKS.md)).
@@ -124,106 +19,65 @@ computation, literature, formal-conditional, rerun-of-certificate, or human-sema
 Rendered from `ledger/` at regeneration; the full record is `SCORECARD.md`, what is owed is `ASKS.md`. Standing words: 5 certified · 5 accepted.
 <!-- standing:end -->
 
-**The claim rule.** The whole claim is called verified only if every step is certified or accepted from refereed
-literature and the formal deduction has been rerun independently. Otherwise it is called conditionally supported and
-each open input is named. The second condition is now met. The first is not: the two Kloosterman inputs are accepted
-from the literature, and the semantic step is open.
+This claim is on the public claims board, https://math-board.nervousmachine.com, which shows its stage, who has contributed, and what it needs next.
 
-**Pre-registration.** Each check and its predicted outcome were written down before the check ran. Later changes go
-in dated amendments appended to the file, never into the body. `prereg_cycle6.sha256` holds two hashes: the file as
-first written and the file after amendment A1. (The path in that file is from the parent repository; the hashes are of
-the file as it stands here.) Standing consequences were also written in advance: what moves if C4 and C5 pass, what
-happens if C6 passes unexpectedly, what gets recorded as an anomaly if C9 fails.
+## Who did the work
 
-**What moved.** The Lean deduction moved from accepted (the authors' toolchain) to certified (rerun independently).
-The 152 numerical bounds moved from open to certified. Three corrections were recorded: an earlier draft called
-Stadlmann's 240 the first improvement in a decade, when Zhang's 240 was deposited three days earlier; an earlier
-draft said the certificate needed a library OpenAI had not published, when the missing piece is a public, unreleased
-upstream fix; and descriptions counting six assumptions were replaced with three, since `propext`, `Quot.sound` and
-`Classical.choice` are Lean's standard rules. Final standing: certified 4, accepted 5, refuted 0, open 3.
+Nervous Machine, with Claude Code as the operating agent that wrote the checks, ran them and kept the ledger. Heidi Bennett, who keeps this record, is independent of the claimant. The agent did not read the proof and makes no claim about the mathematics beyond what the checks establish; everything it did is in the logs. A second rerun was contributed by Fredrik Prüzelius on 14 November 2026.
 
-**Who did the work.** Nervous Machine, with Claude Code as the operating agent that wrote the pre-registrations,
-scripts and ledger entries and ran them. The agent did not read the proof and makes no claim about the mathematics
-beyond what the checks establish. Everything it did is in the logs.
+## The problem
 
-## What remains open, in the order that would settle the claim fastest
+How close together do primes come, infinitely often? Zhang showed in 2013 that some fixed gap occurs infinitely often; Maynard and the Polymath 8 project brought the gap down to 246 in 2014, where it stood for over a decade. In late August and early September 2026 four groups announced smaller bounds by related routes: Hanxin Zhang and Julia Stadlmann each reached 240, Axiom Math announced 212, and OpenAI posted 186. Zhang's 240 has its own record, `DEBRIEF-math-zhang240`.
 
-1. **Do the three goal statements in `Challenge.lean` say what the paper claims?** Comparator confirms the proofs
-   reach their stated goals. It cannot confirm the goals are the right ones. The repository's `formalization.yaml`
-   records the review status as self-assessed with no independent human semantic review. This is a reading task for
-   a number theorist, of three statements, and it is the step that decides whether "conditionally supported" becomes
-   something stronger.
-2. **Refereeing**, or an independent expert read of the written proof. None has been reported.
-3. **The two classical bounds** (Deligne's hyper-Kloosterman bound; Fouvry, Kowalski and Michel's correlation bound)
-   are axioms in the Lean development. Either formalize them or record that the field accepts them as standard.
+There is no third-party formal statement of the problem to compare against. The three goal statements in the claimant's `Challenge.lean` are the claimant's own, which is why reading them is the first thing owed.
 
-## The ask
+## The claim
 
-**A second rerun, on x86.** Ours was on aarch64. The FLINT bug that the certificate guards against is in the FFT
-multiplication path, so architecture is a real variable here. `REPRODUCE.md` is the recipe; it took about two hours
-of machine time on 20 cores plus setup. Open an issue titled "Rerun: <your machine>" with your `results_cycle6.json`
-equivalent, or send a pull request adding a row to `RESULTS.md`. A failed check is as welcome as a pass; say what
-failed.
+**OpenAI**, credited to its model GPT 6 Astra, in the paper *Improved short gaps between primes* (2026) and the repository `github.com/openai/PrimeGaps186`, pinned at commit `61340d0b74163003b32756bb16e91d9209a5e330` (2 September 2026, the repository's only commit). `Challenge.lean` at that commit has sha256 `b99a403b1946547ef1926cd43ebce717640f7f76fa7e1f8f5a4b19ac2e53e1f0`; a verbatim copy is in `source/`.
 
-**A human read of `Challenge.lean`.** Start with `trace/DEFINITIONAL-TRACE.md`. It quotes each of the three goals and
-three axioms verbatim, traces every definition down to Mathlib with file and line, gives a plain-language rendering,
-names the paper location to compare against (Theorem 1.1, Corollary 1.2, Lemma A.4; (2.30)–(2.33) of the numerics
-note), and ends with a sign-off checklist. Parts A and B take under an hour. The renderings are ours and carry no
-standing; a reviewer's signature would. Open an issue titled "Semantic read" and say what you found, in either
-direction. That one issue would close the biggest open item on this scorecard.
+The Lean development proves that a fixed list of forty numbers has infinitely many shifts that contain at least two primes, which gives the bound 186, from three inputs taken as axioms: two classical exponential-sum bounds (Deligne's hyper-Kloosterman bound; Fouvry, Kowalski and Michel's correlation bound) and 152 numerical bounds computed by a separate certificate program. The repository's own metadata records its review status as self-assessed, with no independent human semantic review.
 
-## Cycle 7: the definitional trace (8 November 2026)
+What has been reproduced: the forty-number list and its admissibility; the Lean build, the Comparator statement match and both kernel replays on exactly the three stated inputs plus Lean's three standard axioms; the certificate program to completion, on a public FLINT build; and every number in `Challenge.lean` against the numerics paper. What has not: whether the three goal statements say what the paper claims, and the paper itself, which has not been refereed. The record's own words for this: conditionally supported, with the computation independently reproduced; not settled.
 
-Pre-registered in `prereg_cycle7.yaml` before the paper was read. `trace/DEFINITIONAL-TRACE.md` is the result.
-Alongside it, `cycle7/compare_tables.py` compared every number in `Challenge.lean` with the numerics paper: the 77
-trial coefficients, all 97 component rows, the mask caps, the shared constants, the three scalar bounds, and the
-budget and margin arithmetic in exact rationals. All match (`cycle7/table_compare.json`). One discrepancy was found,
-in `formalization.yaml`, which labels the lim inf statement "Theorem 1.1" where the paper and the Lean docstring say
-Corollary 1.2. No discrepancy affecting content was seen by the agent. The trace changed no standing: the semantic
-gap stays open until a person signs the checklist.
+## What is owed
 
-## Contributing to this record
+Each open gap is in `ASKS.md` with what closes it and who could act. In order:
 
-This repository follows the DEBRIEF protocol (https://github.com/Nervous-Machine/DEBRIEF). Every contribution is one
-dated cycle in `ledger/primegaps.json`, under the contributor's own name, and contributors are listed in
-`CITATION.cff` and in each release. The open items, each with the kind of contribution that would close it, are in
-`ASKS.md`. The quickest one is a semantic read: read `trace/DEFINITIONAL-TRACE.md` and fill in the **Semantic read**
-issue form; a workflow turns it into a `read` cycle verbatim. Reruns and new claims have their own forms. Rules and
-templates: https://github.com/Nervous-Machine/DEBRIEF/blob/main/CONTRIBUTING.md.
+1. **Do the formal statements say what a mathematician means?** (G2): A number theorist reads the three goal statements against the paper, with the reading guide, and signs or refuses its checklist. This is the step that decides whether "conditionally supported" becomes something stronger.
+2. **The two classical exponential-sum bounds are assumed in Lean** (G3): Formalize them, or record that the field accepts them as standard.
+3. **No independent review of the written proof** (G4): A referee report, or an independent expert's account of having read it through.
 
-One note on the record itself: each of our three pre-registrations (cycles 5, 6 and 7) was written before its
-checks ran, but each entered git in the same commit as its results, so the protocol's ordering check cannot confirm
-the order from history. It rests on our word. Cycle 5 (`prereg.yaml`, checks C1 to C3) also has no `.sha256`
-sidecar. Cycles 6 and 7 have sidecars, which show the files are unchanged since registration, not when they were
-written. A contributed rerun whose pre-registration is committed before it runs does not have this weakness.
+Closed: **G1**, the 152 numerical bounds, reproduced by Nervous Machine on 7 November 2026 and by a second party on 14 November.
+
+## Contributing
+
+- **Rerun**: `REPRODUCE.md` is the recipe from a fresh Ubuntu machine, about two hours of machine time on 20 cores. Ours ran on aarch64; the FLINT bug the certificate guards against is in the FFT multiplication path, so x86 is a real variable. Report with the **Rerun report** issue form; it becomes a `rerun` cycle under your name and a row in `RESULTS.md`. A failed check is as welcome as a pass.
+- **Read**: the reading guide is `trace/DEFINITIONAL-TRACE.md`. It quotes each of the three goals and three axioms verbatim, traces every definition to Mathlib with file and line, gives a plain-language rendering that carries no standing, and names the paper location to compare against. Parts A and B take under an hour. Sign or refuse its checklist with the **Semantic read** issue form; either becomes a `read` cycle under your name. Two independent signatures close the semantic gap; one refusal reopens it.
+- **Anything else**: open a plain issue.
+
+Rules and templates: https://github.com/Nervous-Machine/DEBRIEF/blob/main/CONTRIBUTING.md. Every contribution is one dated cycle under your own name and goes into `CITATION.cff` and the next release.
+
+One note on the record itself: Nervous Machine's own pre-registrations were written before their checks ran, but each entered git in the same commit as its results, so git history cannot confirm the order; it rests on our word. A contributed rerun whose pre-registration is committed before it runs does not have this weakness.
 
 ## Layout
 
 ```
-README.md               this file
-prereg_cycle7.yaml      pre-registration for the trace, with its hash alongside
-trace/                  DEFINITIONAL-TRACE.md, the reading guide for a semantic reviewer
-cycle7/                 lean_statements.txt, declarations.tsv, compare_tables.py, table_compare.json
+ledger/primegaps.json   the ledger (protocol 0.1.0)
+SCORECARD.md / ASKS.md  generated from the ledger
 RESULTS.md              one row per independent rerun; how to add yours
 REPRODUCE.md            the recipe, step by step, from a fresh Ubuntu machine
-SCORECARD.md            the human-readable scorecard, as briefed on 7 November 2026
-prereg.yaml             pre-registration for cycles 0–5 and checks C1–C3, with amendment A1
-ASKS.md                 open items and the contribution kind that closes each (generated)
-cycles/                 contributed cycles, one file each, merged by the validation workflow
-.github/                the Semantic read and Rerun report issue forms, and the workflow that calls the protocol's
-CITATION.cff            how to cite this record; contributors of record
-prereg_cycle6.yaml      pre-registration for the rerun, C4–C7, with amendment A1 adding C8–C9
-prereg_cycle6.sha256    hashes of that file before and after the amendment
-checks.py, results.json C1–C3 and their output (python3 -I checks.py reruns them in seconds)
+trace/                  the reading guide for the three goal statements (a `trace` cycle)
+prereg*.yaml            Nervous Machine's pre-registrations, hashed before their checks ran (.sha256 sidecars)
+checks.py, results.json the tuple and small-prime checks, rerunnable in seconds (python3 -I checks.py)
+cycle6/, cycle7/        logs, receipts, environment and scripts of the rerun and the trace
 source/                 Challenge.lean at the pinned commit, verbatim, with its Apache-2.0 licence
-cycle6/                 every log, the receipt, environment, tool commits, the scripts, collect.py, results_cycle6.json
-ledger/                 the DEBRIEF ledger for this mission and its schema
+cycles/                 contributed cycles, one file each
 ```
+
+## Words
+
+This record never calls the claim proved, verified or a theorem. It records what was claimed, what was checked by whom under what rule, and what is still open. Nothing here has standing until a cycle gives it one.
 
 ## Provenance and licences
 
-`source/Challenge.lean` is OpenAI's, unmodified, under Apache-2.0 (`source/LICENSE-openai-PrimeGaps186`). The
-certificate program is not vendored; the recipe fetches it at the pinned commit and records its hash. Everything
-else in this repository is by Nervous Machine under Apache-2.0 (`LICENSE`). References: the OpenAI paper and
-numerics note in the pinned repository; Zhang, Zenodo, 28 August 2026; Stadlmann, arXiv 2608.31126; Axiom Math,
-3 September 2026 announcement and draft; FLINT pull request 2790.
+`source/Challenge.lean` is OpenAI's, unmodified, under Apache-2.0 (`source/LICENSE-openai-PrimeGaps186`). The certificate program is not vendored; the recipe fetches it at the pinned commit and records its hash. Everything else here is by Nervous Machine under Apache-2.0 (`LICENSE`). This repository was `primegaps-186-rerun` until 8 November 2026; the old URL redirects.
