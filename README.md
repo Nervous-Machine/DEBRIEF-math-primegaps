@@ -107,12 +107,22 @@ conditions, the sieve evaluation, the two Kloosterman inputs, the 152 numerical 
 whether `Challenge.lean` states the claim as a mathematician would. Each step was assigned how it could be checked:
 computation, literature, formal-conditional, rerun-of-certificate, or human-semantic-review.
 
-**Standing.** Every finding carries one of four words. *Certified*: a deterministic check we ran under a rule
-written first, or a formal check rerun by a party independent of the authors. *Accepted*: a refereed theorem, a
-formal check reported by the authors' own toolchain, or a step inside a formally checked deduction. *Refuted*: a
-counterexample, a failed check, or a published objection the authors have not answered. *Open*: an input nobody
-independent has checked; it is a gap, not a finding, and it carries no standing. Numeric spot checks on small cases
-corroborate a literature input but never raise its standing.
+<!-- standing:begin -->
+**Standing, 17 Nov 2026.** Stage: Reading guide written. Needs next: Do the formal statements say what a mathematician means? ([what would close it](ASKS.md)).
+
+| certified | accepted | refuted | open gaps | cycles filed | last cycle |
+|---|---|---|---|---|---|
+| 5 | 5 | 0 | 3 | 4 | 17 Nov 2026 |
+
+| | |
+|---|---|
+| checked by machine | Nervous Machine, Fredrik Prüzelius |
+| read by a person | nobody yet; [reading guide](trace/DEFINITIONAL-TRACE.md) |
+| elsewhere | — |
+| related | [Prime gaps ≤ 240 (Zhang)](https://github.com/Nervous-Machine/DEBRIEF-math-zhang240): the same problem, sharper bound (186 against 240) |
+
+Rendered from `ledger/` at regeneration; the full record is `SCORECARD.md`, what is owed is `ASKS.md`. Standing words: 5 certified · 5 accepted.
+<!-- standing:end -->
 
 **The claim rule.** The whole claim is called verified only if every step is certified or accepted from refereed
 literature and the formal deduction has been rerun independently. Otherwise it is called conditionally supported and
