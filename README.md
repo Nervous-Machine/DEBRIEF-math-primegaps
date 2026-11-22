@@ -14,7 +14,7 @@ A DEBRIEF mission record (protocol https://github.com/Nervous-Machine/DEBRIEF) f
 | checked by machine | Nervous Machine, Fredrik Prüzelius |
 | read by a person | nobody yet; [reading guide](trace/DEFINITIONAL-TRACE.md) |
 | elsewhere | — |
-| related | [Prime gaps ≤ 240 (Zhang)](https://github.com/Nervous-Machine/DEBRIEF-math-zhang240): the same problem, sharper bound (186 against 240) |
+| related | [Prime gaps ≤ 240 (Zhang)](https://github.com/Nervous-Machine/DEBRIEF-math-zhang240): the same problem, sharper bound (186 against 240) · same claimant: [Navier–Stokes blow-up, forced (OpenAI)](https://github.com/Nervous-Machine/DEBRIEF-math-navierstokes-forced) |
 
 Rendered from `ledger/` at regeneration; the full record is `SCORECARD.md`, what is owed is `ASKS.md`. Standing words: 5 certified · 5 accepted.
 <!-- standing:end -->
