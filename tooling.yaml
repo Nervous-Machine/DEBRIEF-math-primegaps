@@ -1,0 +1,12 @@
+# Tooling disclosure for this record's claim(s): which models, at what access tier, over what time, as stated by the
+# claimant or inferred from the public record (the basis says which). Read by DEBRIEF/tools/tooling.py into the ledger.
+# Tier words and model release dates: DEBRIEF/tools/models.yaml. Nothing here is a standing.
+claims:
+- by: OpenAI
+  models:
+  - gpt-6-astra
+  tier: internal
+  basis: 'stated by the claimant: the result is credited to its model GPT-6 Astra; the claimant is the model''s
+    maker, and the repository''s only commit predates the model''s public release'
+  work:
+    to: '2026-09-02'

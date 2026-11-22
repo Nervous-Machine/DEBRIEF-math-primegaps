@@ -158,7 +158,34 @@
      "ref": "github.com/Nervous-Machine/DEBRIEF-math-primegaps"
     }
    ],
-   "internal_prose": []
+   "internal_prose": [],
+   "tooling": [
+    {
+     "by": "OpenAI",
+     "tier": "internal",
+     "basis": "stated by the claimant: the result is credited to its model GPT-6 Astra; the claimant is the model's maker, and the repository's only commit predates the model's public release",
+     "models": [
+      {
+       "model": "GPT-6 Astra",
+       "id": "gpt-6-astra",
+       "vendor": "OpenAI",
+       "public_release": "2026-09-03",
+       "tiers_at_release": [
+        "subscription",
+        "subscription-pro",
+        "api"
+       ],
+       "public_at_the_time": "no",
+       "note": "public from 2026-09-03, after the date submitted"
+      }
+     ],
+     "work": {
+      "to": "2026-09-02"
+     },
+     "duration": "not stated",
+     "compute": "not stated"
+    }
+   ]
   }
  ],
  "cycles": [
